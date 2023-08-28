@@ -1,0 +1,60 @@
+.masterpiece {
+
+    display: grid;
+    grid-template-columns: 20% auto 30%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "a b c"
+        "a b c"
+        "d d e";
+}
+
+.masterpiece #left-bar {
+    text-align: center;
+    grid-area: a;
+    /* float: left;
+    margin-left: 140pt; */
+    /* width: 25%; */
+    margin-top: 160pt;
+    color: #8a2be2;
+    background-color: aqua;
+
+}
+
+.masterpiece #middle-image {
+    grid-area: b;
+    /* float: right;
+    margin-left: 140pt; */
+    margin-top: 160pt;
+    background-color: red;
+}
+
+.masterpiece #right-information {
+    grid-area: c;
+    /* float: right;
+    margin-left: 140pt; */
+    margin-top: 160pt;
+    background-color: orange;
+
+    text-align: center;
+}
+
+.masterpiece #d {
+
+    grid-area: d;
+    /* float: right;
+    margin-left: 140pt; */
+    margin-top: 0;
+    background-color: green;
+    text-align: right;
+}
+
+.masterpiece #e {
+    text-align: center;
+    grid-area: e;
+    /* float: right;
+    margin-left: 140pt; */
+    margin-top: 0;
+    background-color: yellow;
+    justify-self: start;
+    align-self: center;
+}

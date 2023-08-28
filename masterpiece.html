@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ZJUAAA</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/masterpiece.css">
+    </head>
+    <body>
+        <div class="header">
+            <a href="contact.html" id="button1">联系我们</a><br>
+            <a href="index.html" class="green">主页</a>
+            <a href="tutorial.html">知识科普</a>
+            <a href="activity.html">社团活动</a>
+            <a href="about.html">关于我们</a>
+            <a href="https://space.bilibili.com/3493080141400107">哔哩哔哩</a>
+        </div>
+        <div id="main-page" class="masterpiece">
+            <div id="left-bar">
+
+                <p><input type="button" value="深空" onclick="toggle_deepsky()"></p>
+                <p><input type="button" value="行星" onclick="toggle_planet()"></p>
+                <p><input type="button" value="星野" onclick="toggle_wide_field()"></p>
+
+            </div>
+            <div id="middle-image">
+                <p>
+                    <input type="button" value="伸缩" onclick="toggle_left_bar()">
+                </p>
+                <p>
+                    <img id="main-image" src="img/icon_13.png" width="80%"
+                        height="80%">
+                </p>
+            </div>
+            <div id="right-information">
+                <p>图片信息</p>
+                <p>
+                    <img src="img/icon_13.png" width="80%"
+                        height="80%">
+                </p>
+            </div>
+            <div id="d">
+                <p>
+                    <img src="img/icon_13.png" width="20%"
+                        height="20%">
+                </p>
+            </div>
+            <div id="e">
+                <p>
+                    <img src="img/icon_13.png" width="10%"
+                        height="10%">
+                </p>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+    function toggle_left_bar() {
+        var main_page = document.getElementById("main-page");
+        if (main_page.style["grid-template-columns"] == "20% auto 30%") {
+            main_page.style["grid-template-columns"] = "0% auto 30%";
+        } else {
+            main_page.style["grid-template-columns"] = "20% auto 30%";
+        }
+    };
+    function toggle_deepsky() {
+        var photo = document.getElementById("main-image");
+        photo.src="img/icon_13.png";
+    };
+    function toggle_planet() {
+        var photo = document.getElementById("main-image");
+        photo.src="img/icon_14.png";
+    };
+    function toggle_wide_field() {
+        var photo = document.getElementById("main-image");
+        photo.src="img/icon_15.png";
+    };
+</script>
