@@ -1,0 +1,102 @@
+body {
+	margin: 0px;
+	font-size: 20px;
+	font-family: STHeiti;
+}
+
+div.header {
+	margin: 0;
+	background-color: #1F1F1F;
+	padding: 20px 80px 20px 120px;
+}
+
+div.header a {
+	color: white;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px 20px 20px 20px;
+	text-decoration: none;
+}
+
+div.header a:hover {
+	color: rgb(134, 239, 172);
+}
+
+a.green {
+	color: rgb(134, 239, 172);
+}
+
+a.green:hover {
+	color: rgb(59, 130, 246);
+}
+
+a#button1 {
+	background-color: white;
+	color: black;
+	display: inline block;
+	padding: 10px 20px 10px 20px;
+	border-radius: 20px;
+	float: right;
+}
+
+a#button1:hover {
+	background-color: #4F4F4F;
+	color: white;
+}
+
+div.slogan {
+	background-color: #2F2F2F;
+	padding: 90px 20px 160px 120px;
+}
+
+div.slogan p {
+	background: linear-gradient(to right, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+	-webkit-background-clip: text;
+	color: transparent;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-size: 64px;
+	font-weight: bold;
+	line-height: 80px;
+	width: 800px;
+}
+
+div.slogan p#white {
+	color: white;
+}
+
+div.slogan p#small {
+	font-size: 24px;
+	font-weight: normal;
+	color: #F0F2F5;
+	letter-spacing: 36px;
+}
+
+div.slogan a#button2 {
+	margin-top: 10px;
+	font-size: 18px;
+	background-image: linear-gradient(to right, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+	color: #F0F2F5;
+	display: inline block;
+	padding: 20px 30px 20px 40px;
+	border-radius: 30px;
+	float: left;
+	letter-spacing: 12px;
+	text-decoration: none;
+}
+
+div.slogan a#button3 {
+	margin-left: 50px;
+	margin-top: 10px;
+	font-size: 18px;
+	color: #F0F2F5;
+	background-color: transparent;
+	border: 2px solid #F0F2F5;
+	padding: 20px 20px 20px 30px;
+	border-radius: 30px;
+	float: left;
+	letter-spacing: 12px;
+	text-decoration: none;
+}
