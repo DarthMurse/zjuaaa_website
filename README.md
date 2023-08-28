@@ -10,3 +10,5 @@ A repository to store all the codes and resources for the Zhejiang University Am
 左右滑动部分采用了现成的 `slick slider` 提供的内容(`slick`文件夹)，同网页文件上传了。
 
 ---
+8.28 18：43 lk
+添加了尾页
