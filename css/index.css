@@ -1,16 +1,18 @@
 body {
-	margin: 0px;
+	margin: 0;
+	border: 0;
 	font-size: 20px;
-	font-family: STHeiti;
+	font-family: "Microsoft YaHei" STHeiti serif;
 	background-color: #2F2F2F;
 }
 
 div.header {
 	margin: 0;
 	background-color: #1F1F1F;
-	padding: 20px 0px 20px 10%;
+	padding: 20px 0 20px 0;
 	position: fixed;
-	width: 90%;
+	width: 100%;
+	z-index: 10;
 }
 
 div.header a {
@@ -25,11 +27,12 @@ div.header a:hover {
 	color: rgb(134, 239, 172);
 }
 
-a.green {
+div.header a.first {
 	color: rgb(134, 239, 172);
+	margin-left: 10%;
 }
 
-a.green:hover {
+div.header a.first:hover {
 	color: rgb(59, 130, 246);
 }
 
