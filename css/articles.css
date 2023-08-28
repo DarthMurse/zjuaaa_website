@@ -1,0 +1,37 @@
+div.articles {
+	background-color: #2F2F2F;
+	padding: 90px 20px 160px 120px;
+}
+
+div.articles h3 {
+    color: rgb(240, 242, 245);
+
+    font-size: 96pt;
+    font-family: 'Noto Serif SC', serif;
+}
+
+div.articles h4 {
+    color: rgb(251, 251, 251);
+
+    font-size: 36pt;
+    font-family: "Microsoft Yahei", serif;
+}
+
+div.articles div.articles-article p {
+    line-height: 10pt;
+}
+
+div.articles div.articles-article p.title {
+    color: rgb(255, 255, 255);
+
+    font-size: 24pt;
+    font-family: "Microsoft Yahei", serif;
+    font-weight: bold;
+}
+
+div.articles div.articles-article p.author, p.date {
+    color: rgb(255, 255, 255);
+
+    font-size: 24pt;
+    font-family: "Microsoft Yahei", serif;
+}
