@@ -1,0 +1,92 @@
+body {
+	margin: 0;
+	border: 0;
+	font-size: 20px;
+	font-family: "Microsoft YaHei" STHeiti serif;
+	background-color: #2F2F2F;
+}
+
+/* 这里是上方导航栏的代码。*/
+div.header {
+	margin: 0;
+	background-color: #1F1F1F;
+	padding: 20px 0 20px 0;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+}
+
+div.header a {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px 20px 20px 20px;
+	text-decoration: none;
+}
+
+div.header a:hover {
+	color: rgb(134, 239, 172);
+}
+
+div.header a.first {
+	color: rgb(134, 239, 172);
+	margin-left: 10%;
+}
+
+div.header a.first:hover {
+	color: rgb(59, 130, 246);
+}
+
+a#button1 {
+	background-color: white;
+	color: black;
+	display: inline block;
+	padding: 10px 20px 10px 20px;
+	border-radius: 20px;
+	float: right;
+	margin-right: 10%;
+}
+
+a#button1:hover {
+	background-color: #4F4F4F;
+	color: white;
+}
+/* 上方导航栏的代码到此结束。*/
+
+/* 下面是知识科普的代码，包含章节目录，正文和小节目录三列。*/
+.left {
+	color: white;
+	position: fixed;
+	overflow-x: hidden;
+	left: 0;
+	width: 20%;
+	height: 100%;
+	top: 100px;
+	padding-left: 10px;
+	z-index: 2;
+}
+
+.left p.catalog {
+	font-size: 30px;
+	font-weight: bold;
+	padding-left: 40px;
+	color: rgb(134, 239, 172);
+}
+
+.left a {
+	text-decoration: none;
+	color: white;
+}
+
+.right {
+	position: relative;
+	top: 100px;
+	margin-left: 20%;
+	overflow-y: auto;
+	color: white;
+	z-index: 1;
+}
+/* 知识科普的代码到此结束。*/
+
+/* 下面是尾页的代码。*/
+/* 尾页的代码到此结束。*/
