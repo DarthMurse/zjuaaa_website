@@ -8,10 +8,10 @@ function showMarkdown(num)
     app.src = 'markdown/'+chapter_list[num];
   	app.render({
     // The class `line-numbers` will be added to the markdown-body container
-    classes: 'line-numbers',
+    // classes: 'line-numbers',
     // These are Marked options
-    gfm: false,
-    mangle: false
+    //gfm: false,
+    //mangle: false
     });
 	document.getElementById('chapter').innerHTML = title_list[num];
 	current_num = num;
