@@ -2,13 +2,14 @@
 A repository to store all the codes and resources for the Zhejiang University Amateur Astronomy Association website.ion
 
 ## 注意事项
-各位在项目里新建文件夹的时候请在这里标注一下文件夹的内容和功能：
-+img 用于存放各种图片，命名时请加上页面前缀，如`tutorial_logo.png`代表`tutorial.html`中引用的图片。
-+js 用于存放各种javascript代码，命名规则同上。
-+css 用于存放各种css文件，命名规则同上。
-+markdown 用于保存科普知识分享中的各种markdown文件。含有三个子目录对应三个大章节，每个大章节中的小节目录存放需要展示的markdown文件和其中用到的各种资源
+各位在项目里新建文件夹的时候请在这里标注一下文件夹的内容和功能：  
+
++ img: 用于存放各种图片，命名时请加上页面前缀，如`tutorial_logo.png`代表`tutorial.html`中引用的图片。
++ js: 用于存放各种javascript代码，命名规则同上。
++ css: 用于存放各种css文件，命名规则同上。
++ markdown: 用于保存科普知识分享中的各种markdown文件。含有三个子目录对应三个大章节，每个大章节中的小节目录存放需要展示的markdown文件和其中用到的各种资源
 每个目录中的`title.txt`内填写改节的名称（不直接用名称命名文件夹是为了防止中文无法识别）。
-+font 用于保存网页中用到的各种字体（防止用户本机没有导致网页不能达到预期效果），用字体本身的名字命名，如`MicrosoftYaHei.ttf`。
++ font: 用于保存网页中用到的各种字体（防止用户本机没有导致网页不能达到预期效果），用字体本身的名字命名，如`MicrosoftYaHei.ttf`。
 
 ## 更新记录
 
