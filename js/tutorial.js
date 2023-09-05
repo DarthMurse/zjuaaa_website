@@ -1,5 +1,5 @@
-var chapter_list = ['part1/chapter1/chapter1.md', 'part1/chapter2/chapter2.md', 'part1/chapter3/chapter3.md', 'part2/chapter4/chapter4.md', 'part2/chapter5/chapter5.md', 'part3/chapter6/chapter6.md', 'part3/chapter7/chapter7.md'];
-var title_dict = ['1111', '2222', '3333', '4444', '5555', '6666', '7777'];
+var chapter_list = ['part3/chapter6/chapter6.md', 'part3/chapter7/chapter7.md', 'part2/chapter5/chapter5.md', 'part2/chapter4/chapter4.md', 'part1/chapter1/chapter1.md', 'part1/chapter2/chapter2.md', 'part1/chapter3/chapter3.md']
+var title_list = ['Markdown代码', 'Markdown的终结', 'Markdown区块', 'Markdown列表', 'Markdown简介', 'Markdown标题', 'Markdown段落格式']
 var current_num = 0;
 
 function showMarkdown(num) 
