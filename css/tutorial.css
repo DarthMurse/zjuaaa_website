@@ -36,17 +36,32 @@ div.header a {
 	display: inline block;
 }
 
-div.header a:hover {
-	color: rgb(134, 239, 172);
+div.header a.knowledge {
+	color: rgb(123, 232, 211);
 }
 
 div.header a.first {
-	color: rgb(134, 239, 172);
 	margin-left: 10%;
 }
 
 div.header a.first:hover {
-	color: rgb(59, 130, 246);
+	color: rgb(161, 229, 182);
+}
+
+div.header a.knowledge:hover {
+	color: rgb(123, 232, 211);
+}
+
+div.header a.activity:hover {
+	color: rgb(80, 183, 224);
+}
+
+div.header a.about:hover {
+	color: rgb(38, 131, 227);
+}
+
+div.header a.bilibili:hover {
+	color: rgb(111, 76, 222);
 }
 
 a#button1 {
@@ -94,6 +109,14 @@ a#button1:hover {
 	color: white;
 }
 
+.left li {
+	color: rgb(187, 249, 217);
+}
+
+.left a:hover {
+	font-weight: bolder;
+}
+
 .left ul.second {
 	list-style-type: square;
 }
@@ -128,7 +151,7 @@ a#button1:hover {
 .bottom {
 	color: white;
 	letter-spacing: 1px;
-	font-weight: bold;
+	font-weight: 100;
 	text-align: center;
 	margin-top: 100px;
 	padding: 20px 60px 20px 60px;
@@ -148,4 +171,9 @@ a#button1:hover {
 
 .bottom a {
 	color: white;
+}
+
+.bottom a:hover {
+	font-weight: 900;
+	color: #8F8F8F;
 }

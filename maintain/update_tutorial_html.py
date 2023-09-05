@@ -77,6 +77,9 @@ if __name__ == "__main__":
 
     start, end = findOuterUL(content)
     parts, chapter_dict = getMD()
+    parts.sort()
+    for part in parts:
+        chapter_dict[part].sort()
     chapter_list, title_list = getChapterList(parts, chapter_dict)
     span_num = findChapterSpan(content)
 
