@@ -1,79 +1,249 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>ZJUAAA</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/masterpiece.css">
-    </head>
-    <body>
-        <div class="header">
-            <a href="contact.html" id="button1">联系我们</a><br>
-            <a href="index.html" class="green">主页</a>
-            <a href="tutorial.html">知识科普</a>
-            <a href="activity.html">社团活动</a>
-            <a href="about.html">关于我们</a>
-            <a href="https://space.bilibili.com/3493080141400107">哔哩哔哩</a>
-        </div>
-        <div id="main-page" class="masterpiece">
-            <div id="left-bar">
 
-                <p><input type="button" value="深空" onclick="toggle_deepsky()"></p>
-                <p><input type="button" value="行星" onclick="toggle_planet()"></p>
-                <p><input type="button" value="星野" onclick="toggle_wide_field()"></p>
+<head>
+    <meta charset="utf-8">
+    <meta name="author 2023/08-" content="雷可，诸致远，洪艺中，庞bing">
 
+    <meta name="newest-version" content="2023/8/28">
+    <meta name="description" content="浙大天协是浙大一群天文爱好者的聚集地">
+    <meta name="keywords" content="浙江大学,浙大天协,天文爱好者,社团">
+    <title>浙大天协</title>
+    <link rel="shortcut icon" href="img/logo.png">
+
+
+    <link rel="stylesheet" href="masterpiece/bootstrap/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="masterpiece/masterpiece.css">
+    <link rel="stylesheet" href="masterpiece/bootstrap_2.css">
+
+
+</head>
+
+
+<body>
+    <div class="header" style="height: 50px;">
+        <a href="contact.html" id="button1">联系我们</a><br>
+        <a href="index.html" class="first">主页</a>
+        <a href="tutorial.html" class="knowledge">知识科普</a>
+        <a href="activity.html" class="activity">社团活动</a>
+        <a href="about.html" class="about">关于我们</a>
+        <a href="https://space.bilibili.com/3493080141400107" class="bilibili">哔哩哔哩</a>
+    </div>
+    <div class="d-flex flex-row-reverse" id="main-page">
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0" id="right-bar">
+
+            <a class="nav-link">
+                Active
+            </a>
+            <a class="nav-link">
+                <img src="img/icon_13.png" class="img-fluid">
+            </a>
+            <a class="nav-link">
+                <img src="img/icon_13.png" class="img-fluid">
+            </a>
+            <a class="nav-link">
+                <img src="img/icon_13.png" class="img-fluid">
+            </a>
+        </div>
+
+        <div class="container-fluid flex-grow-1" id="middle-window">
+            <div class="pt-2 pb-1 px-5 pe-0 fs-6 container-fluid">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">主页</a></li>
+                        <li class="breadcrumb-item"><a href="#">Library</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    </ol>
+                </nav>
             </div>
-            <div id="middle-image">
-                <p>
-                    <input type="button" value="伸缩" onclick="toggle_left_bar()">
-                </p>
-                <p>
-                    <img id="main-image" src="img/icon_13.png" width="80%"
-                        height="80%">
-                </p>
+            <div class="pt-3 pb-5 px-5 container">
+                <div class="card bg-transparent border-0">
+                    <img class="card-img-top rounded-0" id="middle-image" src="masterpiece/SHO2.jpg" alt="M42"
+                        width="100%">
+
+                    <div class="card-body">
+                        <h5 class="image-name" id="image-name">M42</h5>
+                    </div>
+                </div>
             </div>
-            <div id="right-information">
-                <p>图片信息</p>
-                <p>
-                    <img src="img/icon_13.png" width="80%"
-                        height="80%">
-                </p>
-            </div>
-            <div id="d">
-                <p>
-                    <img src="img/icon_13.png" width="20%"
-                        height="20%">
-                </p>
-            </div>
-            <div id="e">
-                <p>
-                    <img src="img/icon_13.png" width="10%"
-                        height="10%">
-                </p>
+            <div class="container px-5 pb-5">
+                <div class="row row-cols-2 g-4">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">基本信息</h5>
+                            </div>
+                            <div class="card-text fs-6 ps-3">
+                                <table class="table w-auto table-borderless">
+                                    <tr>
+                                        <th scope="row">拍摄/后期</th>
+                                        <td id="target-name">lxy/pb</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">目标名称</th>
+                                        <td id="target-name">M42</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">所属天区</th>
+                                        <td>猎户座</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">上传日期</th>
+                                        <td colspan="2">未知</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">图片介绍</th>
+                                        <td colspan="2">xyjj的大作之1</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">拍摄信息</h5>
+                            </div>
+                            <div class="card-text fs-6 ps-3">
+                                <table class="table w-auto table-borderless">
+                                    <tr>
+                                        <th scope="row">拍摄日期</th>
+                                        <td id="target-name">未知</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">拍摄地点</th>
+                                        <td>浙大紫金港</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">曝光时长</th>
+                                        <td>未知</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">设备</h5>
+                            </div>
+                            <div class="card-text fs-6 ps-3">
+                                <table class="table w-auto table-borderless">
+                                    <tr>
+                                        <th scope="row">主镜</th>
+                                        <td id="target-name">信达大黑</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">相机</th>
+                                        <td>ASI6200M</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">底座</th>
+                                        <td colspan="2">AZEQ6</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">滤镜</th>
+                                        <td id="target-name">宇隆HSO</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">导星</th>
+                                        <td>ASI224MC?</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">附件</th>
+                                        <td colspan="2">无</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">软件</th>
+                                        <td colspan="2">Pixinsight</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">高级信息</h5>
+                            </div>
+                            <div class="card-text fs-6 ps-3">
+                                <table class="table w-auto table-borderless">
+                                    <tr>
+                                        <th scope="row">图片大小</th>
+                                        <td id="target-name">13.5M</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">图片分辨率</th>
+                                        <td id="target-name">4125x2915</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">中心赤经</th>
+                                        <td id="target-name">05h 35m 11.755s</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">中心赤纬</th>
+                                        <td>-05° 24' 08.333"</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">像素分辨率</th>
+                                        <td>1.94 角秒/像素</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">视场大小</th>
+                                        <td>2.22 x 1.57 °</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
+
+
+    </div>
+
+
+
+    <div class="modal fade" id="LargeImageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen modal-dialog-centered justify-content-center modal-dialog-scrollable">
+            <div class="modal-content w-auto mw-100 h-auto rounded-0  p-0">
+                <div class="modal-body p-0">
+                    <div class="container-fluid p-0">
+                        <!-- <img class="img-fluid" src="img/icon_13.png"> -->
+
+                        <img class="img-fluid" src="masterpiece/SHO2.jpg">
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+</body>
+
 </html>
 
+<script src="masterpiece/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="masterpiece/jquery-3.7.1.min.js"></script>
 <script>
-    function toggle_left_bar() {
-        var main_page = document.getElementById("main-page");
-        if (main_page.style["grid-template-columns"] == "20% auto 30%") {
-            main_page.style["grid-template-columns"] = "0% auto 30%";
-        } else {
-            main_page.style["grid-template-columns"] = "20% auto 30%";
-        }
+    $("#middle-image").on("click", function () {
+        $('#LargeImageModal').modal('show');
+    });
+    $("#LargeImageModal").on("click", function () {
+        $('#LargeImageModal').modal('hide');
+    });
+
+
+    root_style = getComputedStyle(document.documentElement);
+
+    $("#sidebarToggle").click(toggle_right_bar);
+
+    function toggle_right_bar() {
+        $("#main-page").css("margin-right", "-300px");
     };
-    function toggle_deepsky() {
-        var photo = document.getElementById("main-image");
-        photo.src="img/icon_13.png";
-    };
-    function toggle_planet() {
-        var photo = document.getElementById("main-image");
-        photo.src="img/icon_14.png";
-    };
-    function toggle_wide_field() {
-        var photo = document.getElementById("main-image");
-        photo.src="img/icon_15.png";
-    };
+
 </script>
