@@ -1,0 +1,45 @@
+:root {
+    --right_bar_width: 300px;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.header {
+    box-sizing: content-box;
+}
+
+#main-page {
+    padding-top: 90px;
+    background-color: #2F2F2F;
+    margin: 0px;
+}
+
+
+
+#middle-window {
+
+    transition: 0s;
+}
+
+
+#middle-window #middle-image {
+    cursor: zoom-in;
+}
+
+#LargeImageModal {
+    cursor: zoom-out;
+}
+
+
+#right-bar {
+    text-align: center;
+    background-color: orange;
+    transition: 0s;
+    width: var(--right_bar_width);
+    height: 100vh;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
