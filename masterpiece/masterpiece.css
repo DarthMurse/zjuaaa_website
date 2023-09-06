@@ -2,13 +2,16 @@
     --right_bar_width: 300px;
 }
 
-/* body {
+body {
+    box-sizing: border-box;
+}
 
-    min-height: 100vh;
-} */
+.header {
+    box-sizing: content-box;
+}
 
 #main-page {
-    padding-top: 100px;
+    padding-top: 90px;
     background-color: #2F2F2F;
     margin: 0px;
 }
@@ -16,7 +19,6 @@
 
 
 #middle-window {
-
 
     transition: 0s;
 }
