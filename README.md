@@ -39,3 +39,9 @@ A repository to store all the codes and resources for the Zhejiang University Am
 9.6 20:47 pb
 
 初步设计单张照片展示的页面
+
+---
+9.6 22:44 zzy
+
+基本上完成知识分享页面的设计（包括pc、平板和手机端），未来可能需要针对手机端进行一些设计上的改进（手机字体较小）。
+知识分享的markdown放`markdown`目录下，更新后运行`maintain`目录下的`update_tutorial_html.py`以更新内容。
