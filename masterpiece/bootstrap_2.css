@@ -1,0 +1,10 @@
+.breadcrumb-item {
+    --bs-breadcrumb-divider: '>';
+    --bs-breadcrumb-divider-color: white;
+    --bs-breadcrumb-item-active-color: white;
+    text-decoration: none;
+}
+
+#LargeImageModal {
+    --bs-btn-close-color: white;
+}
