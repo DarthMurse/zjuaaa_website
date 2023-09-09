@@ -36,8 +36,8 @@ div.header a {
 	display: inline block;
 }
 
-div.header a.knowledge {
-	color: rgb(123, 232, 211);
+div.header a.first {
+	color: rgb(161, 229, 182);
 }
 
 div.header a.first {
@@ -80,109 +80,33 @@ a#button1:hover {
 }
 /* 上方导航栏的代码到此结束。*/
 
-/* 下面是知识科普的代码，包含章节目录，正文和小节目录三列。*/
-.container {
-	overflow: hidden;
-}
-
-.left {
+/* 下面是main部分的代码。*/
+.main {
 	color: white;
-	letter-spacing: 1px;
-	overflow: scroll;
-	width: 20%;
-	height: 100vh;
-	float: left;
+	background: #2F2F2F;
 	margin-top: 100px;
-	font-size: 20px;
-	padding-left: 2%;
-	padding-right: 4%;
-	line-height: 30px;
-	z-index: 2;
-}
-
-.left p.catalog {
-	font-size: 22px;
+	font-family: MicrosoftYaHei;
+	font-size: 24px;
 	font-weight: bold;
-	padding-left: 40px;
-	color: rgb(134, 239, 172);
-}
-
-.left a {
-	text-decoration: none;
-	font-weight: normal;
-	color: white;
-}
-
-.left li {
-	color: rgb(187, 249, 217);
-}
-
-.left a:hover {
-	font-weight: bolder;
-}
-
-.left ul.second {
-	list-style-type: square;
-}
-
-.right {
-	border-left: 2px solid #4f4f4f;
-	margin-bottom: 30px;
-	letter-spacing: 1px;
-	top: 100px;
-	font-size: 18px;
-	margin-top: 100px;
+	text-align: left;
+	padding-left: 5%;
+	padding-bottom: 30px;
 	float: left;
-	overflow: scroll;
-	padding: 0px 3% 0px 4%;
-	width: 65%;
-	height: 100vh;
-	color: white;
-	z-index: 1;
 }
 
-.img {
-	padding: 30px 30px 20px 30px;
+.main p#title {
+	font-size: 32px;
 }
 
-.img img#logo {
-	height: 100px;
+.side {
+	float: right;
+	margin-top: 180px;
+	padding-right: 5%;
 }
 
-.img img#title {
-	height: 70px;
-}
-/* 知识科普的代码到此结束。*/
-
-.bottom {
-	color: white;
-	letter-spacing: 1px;
-	font-weight: 100;
-	text-align: center;
-	margin: 0 0 0 0;
-	padding: 20px 0px 20px 0px;
-	background: #3f3f3f;
-	float: bottom;
-	overflow-x: hidden;
-	width: 100%;
-	z-index: 3;
-}
-
-.bottom span#former {
-	margin-right: 100px;
-}
-
-.bottom span#latter {
-	margin-left: 100px;
-}
-
-.bottom a {
-	color: white;
-}
-
-.bottom a:hover {
-	font-weight: 900;
-	color: #8F8F8F;
+.side img {
+	width: 200px;
+	height: 200px;
 }
 
 /* 下面是尾页的代码。*/
