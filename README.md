@@ -50,3 +50,8 @@ A repository to store all the codes and resources for the Zhejiang University Am
 9.6 23:29 hyz
 
 完成了活动页的设计，和后台维护 python 程序 `article_change.py`, 数据存在 `article_content.json` 里。程序内含说明。
+
+---
+9.9 23:16 zzy
+
+完成了联系我们页面的设计
