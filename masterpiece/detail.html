@@ -10,11 +10,11 @@
     <meta name="keywords" content="浙江大学,浙大天协,天文爱好者,社团">
     <title>浙大天协</title>
     <link rel="shortcut icon" href="/img/logo.png">
-    <link rel="stylesheet" href="/masterpiece/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/js/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/img/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/masterpiece/detail.css">
+    <link rel="stylesheet" href="/css/detail.css">
 
 </head>
 
@@ -289,8 +289,8 @@
 
 </html>
 
-<script src="/masterpiece/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="/masterpiece/jquery-3.7.1.min.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
 <script>
 
     $("#middle-image").on("click", function () {
@@ -307,12 +307,15 @@
         $("#right-bar").css("margin-left", "0px");
         $("#main-page").css("margin-right", "0px");
         $("#rightBarClose").css("right", "300px");
+        document.cookie = "rightBarOpened=true" + "; path=/";
+
     };
 
     function rightBarClose() {
         $("#right-bar").css("margin-left", "20px");
         $("#main-page").css("margin-right", "-320px");
         $("#rightBarClose").css("right", "-50px");
+        document.cookie = "rightBarOpened=false" + "; path=/";
     };
 
     $(".right-nav-img").click(function () {
@@ -331,6 +334,32 @@
     var image_information_path = "/masterpiece/image_information.json";
 
     async function start_function() {
+        {
+            const cookies = document.cookie.split(';');
+            let rightBarOpened = "true";
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith('rightBarOpened=')) {
+                    rightBarOpened = cookie.substring(15);
+                    break;
+                }
+            }
+            if (rightBarOpened == "true") {
+                rightBarOpen();
+            }
+            else {
+                $("#right-bar").css("transition", "0s");
+                $("#main-page").css("transition", "0s");
+                $("#rightBarClose").css("transition", "0s");
+                rightBarClose();
+                setTimeout(function () {
+                    $("#right-bar").css("transition", "0.3s");
+                    $("#main-page").css("transition", "0.3s");
+                    $("#rightBarClose").css("transition", "0.3s");
+                }, 300);
+            }
+        }
+
         await $.getJSON(image_information_path, function (data) {
             $.each(data, function (image_name, image_information) {
                 image_list.push(image_name);
@@ -338,16 +367,20 @@
             });
         });
         const cookies = document.cookie.split(';');
-        let image1 = "";
+        let current_image = "";
+
         for (let cookie of cookies) {
             cookie = cookie.trim();
             if (cookie.startsWith('current-img=')) {
-                image1 = cookie.substring(12);
+                current_image = cookie.substring(12);
                 break;
             }
         }
-        await change_image(image1);
-        await get_nav_image(nav_image_list, image1);
+        if (current_image == "") {
+            current_image = image_list[0];
+        }
+        await change_image(current_image);
+        await get_nav_image(nav_image_list, current_image);
     }
 
 
@@ -391,6 +424,7 @@
                 }
             });
         });
+        document.cookie = "current-img=" + image_name + "; path=/";
     }
 
     function get_nav_image(nav_image_list, image_name) {

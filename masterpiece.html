@@ -62,10 +62,10 @@
 </body>
 
 </html>
-<script src="/masterpiece/jquery-3.7.1.min.js"></script>
-<script src="/masterpiece/imagesloaded.pkgd.min.js"></script>
-<script src="/masterpiece/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="/masterpiece/masonry.pkgd.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/imagesloaded.pkgd.min.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/masonry.pkgd.min.js"></script>
 
 <script>
     var image_list = [];
@@ -98,6 +98,6 @@
     $(".waterflow-images").on("click", function () {
         var img_name = $(this).children("img").attr("img-name");
         window.location.href = "/masterpiece/detail.html";
-        document.cookie = `current-img=${img_name}`;
+        document.cookie = "current-img=" + img_name + "; path=/";
     });
 </script>
