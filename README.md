@@ -59,5 +59,5 @@ A repository to store all the codes and resources for the Zhejiang University Am
 ---
 9.13 15:39 pb
 
-完成了图库页和详情页的设计
+完成了图库页和详情页的设计。图片页面都需要挂载才能工作。图片信息列表要/masterpiece/image_information.json
 
