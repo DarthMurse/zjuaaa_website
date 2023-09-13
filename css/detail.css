@@ -1,0 +1,163 @@
+:root {
+    --right_bar_width: 300px;
+    font-size: 20px;
+}
+
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.header {
+    box-sizing: content-box;
+    padding: inherit;
+}
+
+#main-page {
+    transition: 0.3s;
+}
+
+
+
+#middle-window {
+
+    transition: 0s;
+}
+
+
+#middle-window #middle-image {
+    cursor: zoom-in;
+}
+
+#middle-window #image-name-middle {
+    color: white;
+}
+
+#LargeImageModal {
+    cursor: zoom-out;
+}
+
+
+
+#right-bar {
+    text-align: center;
+    background-color: #3f3f3f;
+    width: var(--right_bar_width);
+    height: calc(100vh - 90px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: sticky;
+    top: 90px;
+    margin-left: 0px;
+    transition: 0.3s;
+}
+
+#rightBarOpen {
+    top: 95px;
+    right: 10px;
+    position: fixed;
+}
+
+#rightBarClose {
+    padding: 0px;
+    margin: 0px;
+    width: 32px;
+    height: 32px;
+    user-select: none;
+    position: fixed;
+    top: 95px;
+    right: 300px;
+    background-color: white;
+    border: none;
+    opacity: 0.5;
+    text-align: center;
+    display: block;
+    transition: 0.3s;
+}
+
+#rightBarClose :hover {
+    opacity: 0.75;
+}
+
+.right-nav-img {
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 3px;
+}
+
+.right-nav-img.selected img {
+
+    border-radius: 2px;
+}
+
+.right-nav-img.selected {
+    box-shadow: 0 0 0 3px rgba(0, 144, 237, 1);
+    z-index: 5;
+}
+
+.right-nav-img:hover {
+    width: 100%;
+    transform: scale(1.03);
+    z-index: 10;
+}
+
+#breadcrumb-bar {
+    height: 2rem;
+    padding-left: 1rem;
+    margin: 0 0rem;
+    border-radius: 10px;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.breadcrumb-item {
+    --bs-breadcrumb-divider: '>';
+    --bs-breadcrumb-divider-color: white;
+    --bs-breadcrumb-item-active-color: white;
+    font-size: 1rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}
+
+
+.card {
+    border-color: #2f2f2f;
+    border-radius: 1rem;
+    padding: 0;
+    background-color: #363636;
+}
+
+.card-title {
+    font-size: 0.9rem;
+    color: white;
+    background-color: #272727;
+    border-radius: 1rem 1rem 0 0;
+    padding: 0.7rem 1rem;
+    text-justify: center;
+}
+
+.card-text {
+    font-size: 0.7rem;
+    padding-left: 0.5rem;
+}
+
+.card-text tr {
+    padding: 0.2rem 1rem;
+}
+
+.card-text th {
+    padding: inherit;
+    color: white;
+    background-color: inherit;
+}
+
+.card-text td {
+    padding: inherit;
+    color: white;
+    background-color: inherit;
+}

@@ -1,0 +1,187 @@
+{
+    "M42 test1": {
+        "image-name": "M42 test1",
+        "full-image": "/masterpiece/full/M42_SHO2.png",
+        "middle-image": "/masterpiece/thumbnail/thumbnail_M42_SHO2.png",
+        "histogram-image": "/masterpiece/histogram/histogram_M42_SHO2.png",
+        "skyplot-image": "/masterpiece/skyplot/skyplot_M42_SHO2.png",
+        "base-information": {
+            "photographer": "lxy/pb",
+            "target-name": "M42",
+            "sky-plot": "猎户座",
+            "update-date": "未知",
+            "image-description": "xyjj的大作之1"
+        },
+        "shoot-information": {
+            "shoot-date": "未知",
+            "location": "浙大紫金港",
+            "exposure": "未知"
+        },
+        "equipment": {
+            "telescope": "信达大黑200/1000",
+            "camera": "ASI6200M",
+            "mount": "AZEQ6",
+            "filter": "宇隆HSO 2\"",
+            "guide-camera": "ASI224MC",
+            "focuser": "Oasis Focuser",
+            "accessory": "ZWO OAG",
+            "software": "Pixinsight"
+        },
+        "advanced": {
+            "file-size": "13.5M",
+            "resolution": "4125x2915",
+            "RA": "05h 35m 11.755s",
+            "DEC": "-05° 24' 08.333\"",
+            "pixel-scale": "1.94 角秒/像素",
+            "FOV": "2.22 x 1.57 °"
+        }
+    },
+    "xyjj and loki 1（好甜）": {
+        "image-name": "xyjj and loki 1（好甜）",
+        "full-image": "/masterpiece/full/xyjj1.png",
+        "middle-image": "/masterpiece/thumbnail/thumbnail_xyjj1.png",
+        "histogram-image": "/masterpiece/histogram/histogram_xyjj1.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "",
+            "target-name": "",
+            "sky-plot": "",
+            "update-date": "",
+            "image-description": "爱情的萌芽（大笑）"
+        },
+        "shoot-information": {
+            "shoot-date": "2022年10月3日",
+            "location": "浙大紫金港",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "",
+            "resolution": "",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    },
+    "冷湖合影": {
+        "image-name": "冷湖合影",
+        "full-image": "/masterpiece/full/zjuaaa all 1.jpg",
+        "middle-image": "/masterpiece/thumbnail/thumbnail_zjuaaa all 1.png",
+        "histogram-image": "/masterpiece/histogram/histogram_zjuaaa all 1.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "",
+            "target-name": "",
+            "sky-plot": "",
+            "update-date": "",
+            "image-description": "合照之1"
+        },
+        "shoot-information": {
+            "shoot-date": "2023年8月13日",
+            "location": "冷湖天文台",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "",
+            "resolution": "",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    },
+    "M27": {
+        "image-name": "M27",
+        "full-image": "/masterpiece/full/M27.png",
+        "middle-image": "/masterpiece/thumbnail/thumbnail_M27.png",
+        "histogram-image": "/masterpiece/histogram/histogram_M27.png",
+        "skyplot-image": "/masterpiece/skyplot/skyplot_M27.png",
+        "base-information": {
+            "photographer": "pb",
+            "target-name": "M27",
+            "sky-plot": "狐狸座",
+            "update-date": "未知",
+            "image-description": "天文台的处女作"
+        },
+        "shoot-information": {
+            "shoot-date": "2021年10月5日、2021年10月9日",
+            "location": "浙大紫金港",
+            "exposure": "L: 10x120s; 10x90s R: 5x240s; G: 5x240s; B: 5x240s; OIII: 1x600s"
+        },
+        "equipment": {
+            "telescope": "信达大黑200/1000",
+            "camera": "QHY695A",
+            "mount": "AZEQ6",
+            "filter": "宇隆LRGBHSO 1.25\"",
+            "guide-camera": "QHY5L-II-C",
+            "focuser": "Grus Focuser",
+            "accessory": "信达MPCC F0.8、QHY OAG",
+            "software": "Pixinsight"
+        },
+        "advanced": {
+            "file-size": "1.44M",
+            "resolution": "1000x1000",
+            "RA": "19h 59m 36.510s",
+            "DEC": "+22° 43' 17.626\"",
+            "pixel-scale": "1.17 角秒/像素",
+            "FOV": "19.5 x 19.5 '"
+        }
+    },
+    "月食 cby": {
+        "image-name": "月食 cby",
+        "full-image": "/masterpiece/full/DSC01823.png",
+        "middle-image": "/masterpiece/thumbnail/thumbnail_DSC01823.png",
+        "histogram-image": "/masterpiece/histogram/histogram_DSC01823.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "cby",
+            "target-name": "",
+            "sky-plot": "",
+            "update-date": "",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "",
+            "resolution": "",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    }
+}

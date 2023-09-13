@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author 2023/08-" content="雷可，诸致远，洪艺中，庞彬">
+
+    <meta name="newest-version" content="2023/8/28">
+    <meta name="description" content="浙大天协是浙大一群天文爱好者的聚集地">
+    <meta name="keywords" content="浙江大学,浙大天协,天文爱好者,社团">
+    <title>浙大天协</title>
+    <link rel="shortcut icon" href="/img/logo.png">
+    <link rel="stylesheet" href="/js/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/img/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/detail.css">
+
+</head>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="telescope-icon" viewBox="0 0 24 24">
+        <path
+            d="M.408 15.13a2 2 0 0 1 .59-2.642L17.038 1.33a1.999 1.999 0 0 1 2.85.602l2.828 4.644a2 2 0 0 1-.851 2.847l-17.762 8.43a2 2 0 0 1-2.59-.807Zm5.263-4.066 1.987 3.44 8.712-4.135-2.857-4.76Zm12.06-1.34.001-.001 3.49-1.656a.498.498 0 0 0 .212-.712l-2.826-4.644a.503.503 0 0 0-.713-.151l-3.148 2.19Zm-13.295 2.2L1.854 13.72a.5.5 0 0 0-.147.66l1.105 1.915a.5.5 0 0 0 .648.201l2.838-1.347ZM17.155 22.87a.75.75 0 0 0 .226-1.036l-4-6.239a.75.75 0 0 0-.941-.278l-2.75 1.25a.75.75 0 0 0-.318.274l-3.25 4.989a.75.75 0 0 0 1.256.819l3.131-4.806.51-.232v5.64a.75.75 0 1 0 1.5 0v-6.22l3.6 5.613a.75.75 0 0 0 1.036.226Z">
+        </path>
+    </symbol>
+    <symbol id="btn-close-icon" viewBox="0 0 16 16">
+        <path
+            d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'>
+        </path>
+    </symbol>
+</svg>
+</svg>
+
+<body>
+
+    <div class="header">
+        <a href="contact.html" id="button1">联系我们</a><br>
+        <a href="index.html" class="first">主页</a>
+        <a href="tutorial.html">知识科普</a>
+        <a href="tutorial.html">知识科普</a>
+        <a href="activity.html">社团活动</a>
+        <a href="masterpiece.html">天文摄影</a>
+        <a href="about.html">关于我们</a>
+        <a href="https://space.bilibili.com/3493080141400107">哔哩哔哩</a>
+    </div>
+
+    <nav class="navbar sticky-top z-n1" style="height: 90px;"></nav>
+
+    <div class="d-flex justify-content-end" id="main-page">
+
+        <div class="container-fluid flex-grow-1" id="middle-window">
+            <div class="py-3 px-0 container">
+                <div class="d-flex flex-row align-items-center" id="breadcrumb-bar">
+                    <nav class="flex-grow-1" aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/index.html">
+                                    <i class="bi-house-fill"></i>
+                                    主页</a></li>
+                            <li class="breadcrumb-item"><a href="/masterpiece.html">作品</a></li>
+                            <li class="breadcrumb-item active" aria-current="page" id="image-name-nav"> </li>
+                        </ol>
+                    </nav>
+                </div>
+                <button type="button" class="btn" id="rightBarOpen">
+                    <i class="bi-images" style="color: white; font-size: 1.5rem;"></i>
+                </button>
+            </div>
+            <div class="pt-1 pb-2 px-4 container">
+                <div class="card bg-transparent border-0">
+                    <img class="card-img-top rounded-0" id="middle-image" src="" width="100%">
+
+                    <p class="fs-4 m-0 my-3" id="image-name-middle"> </p>
+                </div>
+            </div>
+            <div class="container px-4 pb-5">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row row-cols-1 gy-4">
+                            <div class="col">
+                                <div class="card shadow" id="base-information">
+                                    <h5 class="card-title">
+                                        <i class="bi-card-text" style="color: white;"></i>
+                                        基本信息
+                                    </h5>
+                                    <div class="card-text">
+                                        <table class="table w-auto table-borderless">
+                                            <tr id="photographer">
+                                                <th scope="row">拍摄/后期</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="target-name">
+                                                <th scope="row">目标名称</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="sky-plot">
+                                                <th scope="row">所属天区</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="update-date">
+                                                <th scope="row">上传日期</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="image-description">
+                                                <th scope="row">图片介绍</th>
+                                                <td> </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow" id="shoot-information">
+                                    <h5 class="card-title">
+                                        <i class="bi-camera" style="color: white;"></i>
+                                        拍摄信息
+                                    </h5>
+                                    <div class="card-text">
+                                        <table class="table w-auto table-borderless">
+                                            <tr id="shoot-date">
+                                                <th scope="row">拍摄日期</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="location">
+                                                <th scope="row">拍摄地点</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="exposure">
+                                                <th scope="row">曝光信息</th>
+                                                <td> </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow" id="equipment">
+                                    <h5 class="card-title">
+                                        <svg fill="white" width="0.9rem" height="0.9rem">
+                                            <use xlink:href="#telescope-icon" />
+                                        </svg>
+                                        设备
+                                    </h5>
+                                    <div class="card-text">
+                                        <table class="table w-auto table-borderless">
+                                            <tr id="telescope">
+                                                <th scope="row">主镜</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="camera">
+                                                <th scope="row">相机</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="mount">
+                                                <th scope="row">底座</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="filter">
+                                                <th scope="row">滤镜</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="guide-camera">
+                                                <th scope="row">导星</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="focuser">
+                                                <th scope="row">调焦</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="accessory">
+                                                <th scope="row">其它设备</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="software">
+                                                <th scope="row">软件</th>
+                                                <td> </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow" id="advanced">
+                                    <h5 class="card-title">
+                                        <i class="bi-info-square" style="color: white;"></i>
+                                        高级
+                                    </h5>
+                                    <div class="card-text">
+                                        <table class="table w-auto table-borderless">
+                                            <tr id="file-size">
+                                                <th scope="row">图片大小</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="resolution">
+                                                <th scope="row">图片分辨率</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="RA">
+                                                <th scope="row">中心赤经</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="DEC">
+                                                <th scope="row">中心赤纬</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="pixel-scale">
+                                                <th scope="row">像素分辨率</th>
+                                                <td> </td>
+                                            </tr>
+                                            <tr id="FOV">
+                                                <th scope="row">视场大小</th>
+                                                <td> </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row row-cols-1 gy-4">
+                            <div class="col">
+                                <div class="card shadow">
+                                    <h5 class="card-title m-0">
+                                        <i class="bi-geo-alt-fill" style="color: white;"></i>
+                                        天区位置
+                                    </h5>
+                                    <img class="card-img-bottom rounded-0 p-0" src="" width="100%" id="skyplot-image">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card shadow">
+                                    <h5 class="card-title m-0">
+                                        <i class="bi-bar-chart-fill" style="color: white;"></i>
+                                        直方图
+                                    </h5>
+                                    <img class="card-img-bottom rounded-0 p-2" src="" width="100%" id="histogram-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column flex-shrink-0 p-2 position-sticky" id="right-bar">
+            <button id="rightBarClose">
+                <svg fill="#6f6f6f" width="16" height="16">
+                    <use xlink:href="#btn-close-icon" />
+                </svg>
+            </button>
+
+            <div class="d-flex flex-column">
+                <div class="right-nav-img" id="right-bar-image1">
+                    <img class="img-fluid" src="">
+                </div>
+                <div class="right-nav-img" id="right-bar-image2">
+                    <img class="img-fluid" src="">
+                </div>
+                <div class=" right-nav-img" id="right-bar-image3">
+                    <img class="img-fluid" src="">
+                </div>
+                <div class="right-nav-img" id="right-bar-image4">
+                    <img class="img-fluid" src="">
+                </div>
+                <div class="right-nav-img" id="right-bar-image5">
+                    <img class="img-fluid" src="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="LargeImageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen modal-dialog-centered justify-content-center modal-dialog-scrollable">
+            <div class="modal-content w-auto mw-100 h-auto rounded-0  p-0">
+                <div class="modal-body p-0">
+                    <div class="container-fluid p-0">
+                        <img class="img-fluid" src="" id="full-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script>
+
+    $("#middle-image").on("click", function () {
+        $('#LargeImageModal').modal('show');
+    });
+    $("#LargeImageModal").on("click", function () {
+        $('#LargeImageModal').modal('hide');
+    });
+
+    $("#rightBarOpen").click(rightBarOpen);
+    $("#rightBarClose").click(rightBarClose);
+
+    function rightBarOpen() {
+        $("#right-bar").css("margin-left", "0px");
+        $("#main-page").css("margin-right", "0px");
+        $("#rightBarClose").css("right", "300px");
+        document.cookie = "rightBarOpened=true" + "; path=/";
+
+    };
+
+    function rightBarClose() {
+        $("#right-bar").css("margin-left", "20px");
+        $("#main-page").css("margin-right", "-320px");
+        $("#rightBarClose").css("right", "-50px");
+        document.cookie = "rightBarOpened=false" + "; path=/";
+    };
+
+    $(".right-nav-img").click(function () {
+        var image_name = $(this).attr("img-name");
+        change_image(image_name);
+        $(".right-nav-img").removeClass("selected");
+        $(this).addClass("selected");
+    });
+
+
+
+
+
+    var image_list = [];
+    var nav_image_list = [];
+    var image_information_path = "/masterpiece/image_information.json";
+
+    async function start_function() {
+        {
+            const cookies = document.cookie.split(';');
+            let rightBarOpened = "true";
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith('rightBarOpened=')) {
+                    rightBarOpened = cookie.substring(15);
+                    break;
+                }
+            }
+            if (rightBarOpened == "true") {
+                rightBarOpen();
+            }
+            else {
+                $("#right-bar").css("transition", "0s");
+                $("#main-page").css("transition", "0s");
+                $("#rightBarClose").css("transition", "0s");
+                rightBarClose();
+                setTimeout(function () {
+                    $("#right-bar").css("transition", "0.3s");
+                    $("#main-page").css("transition", "0.3s");
+                    $("#rightBarClose").css("transition", "0.3s");
+                }, 300);
+            }
+        }
+
+        await $.getJSON(image_information_path, function (data) {
+            $.each(data, function (image_name, image_information) {
+                image_list.push(image_name);
+                nav_image_list.push(image_name);
+            });
+        });
+        const cookies = document.cookie.split(';');
+        let current_image = "";
+
+        for (let cookie of cookies) {
+            cookie = cookie.trim();
+            if (cookie.startsWith('current-img=')) {
+                current_image = cookie.substring(12);
+                break;
+            }
+        }
+        if (current_image == "") {
+            current_image = image_list[0];
+        }
+        await change_image(current_image);
+        await get_nav_image(nav_image_list, current_image);
+    }
+
+
+    function change_image(image_name) {
+        $.getJSON(image_information_path, function (result) {
+            $.each(result, function (image, image_information) {
+                if (image == image_name) {
+                    $.each(image_information, function (key, value) {
+                        if ($.isPlainObject(value)) {
+                            var isEmpty = true;
+                            $.each(value, function (key, value) {
+                                if (value != "") {
+                                    $("#" + key).css("display", "table-row");
+                                    isEmpty = false;
+                                }
+                                else {
+                                    $("#" + key).css("display", "none");
+                                }
+                                $("#" + key).children("td").text(value);
+                            });
+                            if (isEmpty == true) {
+                                $("#" + key).parent().css("display", "none");
+                            }
+                            else {
+                                $("#" + key).parent().css("display", "block");
+                            }
+                        }
+                        else if (key == "image-name") {
+                            $("#image-name-nav, #image-name-middle").text(value);
+                        }
+                        else {
+                            if (value == "") {
+                                $("#" + key).parent().parent().css("display", "none");
+                            }
+                            else {
+                                $("#" + key).parent().parent().css("display", "block");
+                            }
+                            $("#" + key).attr("src", value)
+                        }
+                    });
+                }
+            });
+        });
+        document.cookie = "current-img=" + image_name + "; path=/";
+    }
+
+    function get_nav_image(nav_image_list, image_name) {
+        $.getJSON(image_information_path, function (result) {
+            for (var i = 0; i < nav_image_list.length; i++) {
+                $("#right-bar-image" + (i + 1)).children("img").attr("src", result[nav_image_list[i]]["middle-image"]);
+                $("#right-bar-image" + (i + 1)).attr("img-name", nav_image_list[i]);
+                if (nav_image_list[i] == image_name) {
+                    $("#right-bar-image" + (i + 1)).addClass("selected");
+                }
+                else {
+                    $("#right-bar-image" + (i + 1)).removeClass("selected");
+                }
+            }
+        });
+    }
+
+
+    start_function();
+
+
+</script>
