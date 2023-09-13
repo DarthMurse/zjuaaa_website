@@ -34,3 +34,24 @@ A repository to store all the codes and resources for the Zhejiang University Am
 9.5 12:59 zzy
 
 初步设计了电脑端知识分享的页面，有部分代码还没有完成，先保存上传一下
+
+---
+9.6 20:47 pb
+
+初步设计单张照片展示的页面
+
+---
+9.6 22:44 zzy
+
+基本上完成知识分享页面的设计（包括pc、平板和手机端），未来可能需要针对手机端进行一些设计上的改进（手机字体较小）。
+知识分享的markdown放`markdown`目录下，更新后运行`maintain`目录下的`update_tutorial_html.py`以更新内容。
+
+---
+9.6 23:29 hyz
+
+完成了活动页的设计，和后台维护 python 程序 `article_change.py`, 数据存在 `article_content.json` 里。程序内含说明。
+
+---
+9.9 23:16 zzy
+
+完成了联系我们页面的设计
