@@ -1,0 +1,228 @@
+div.header a.first {
+	color: rgb(255, 255, 255);
+}
+div.header a.activity {
+	color: rgb(80, 183, 224);
+}
+
+.news {
+	background-color: #2F2F2F;
+	/* border: 10px solid blue; */
+	padding: 100px 10% 160px 10%;
+}
+
+.newsTitle {
+	/* width: 80%; */
+	height: auto;
+	padding: 5% 5% 5% 5%;
+	/* border: 5px solid; */
+	border-radius: 100px;
+	background-image: url("../img/bgi.jpg");
+	background-size: cover;
+	/* overflow: scroll; */
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "title date";
+	align-content: stretch;
+
+	justify-items: center;
+}
+
+.newsTitle .newsTitleFixed {
+	grid-area: "title";
+	justify-self: start;
+}
+
+.newsTitle .newsTitleFixed h1 {
+	font-size: 48pt;
+	font-family: 'MicrosoftYaHei';
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 0.5;
+	margin-bottom: 0;
+}
+
+.newsTitle .newsTitleFixed p {
+	font-size: 20pt;
+	font-family: 'Noto Serif SC';
+	color: #BBBBBB;
+}
+
+.newsTitle .newsDate {
+	/* border: 5px solid; */
+	grid-area: "date";
+	justify-self: end;
+	align-self: center;
+}
+
+.newsTitle .newsDate p {
+	font-size: 32pt;
+	font-family: 'MicrosoftYaHei';
+	color: #FFFFFF;
+	text-align: right;
+	line-height: 0.5;
+}
+
+.newsList {
+	height: auto;
+}
+
+.newsList ul {
+	padding: 0;
+	list-style-type: none;
+	
+	/* list-style-position: inside; */
+}
+
+.newsList ul li {
+	/* border: 2px solid brown; */
+	padding: 0 0 0 5%;
+	background-color: #3F3F3F;
+	display: grid;
+	grid-template-areas: "date info";
+	grid-template-columns: 1fr 3fr;
+	margin: 10px;
+}
+
+.newsInfoDate {
+	/* border: 2px blue; */
+	grid-area: "date";
+	align-self: center;
+	justify-self: start;
+}
+
+.newsInfoDate p.ptime {
+	font-size: 24pt;
+	font-family: 'poppins';
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 0.5;
+}
+
+.newsInfoDate p.pconnect {
+	font-size: 16pt;
+	font-family: 'poppins';
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 0.5;
+}
+
+.newsInfoDetail {
+	border: 15pt;
+	grid-area: "info";
+	align-self: center;
+	justify-self: start;
+}
+
+.newsInfoDetail p {
+	font-size: 24pt;
+	font-family: 'Noto Serif SC';
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 0.5;
+}
+
+/* 接下来是天协动态部分 */
+
+.articles {
+	background-color: #2F2F2F;
+	/* border: 10px solid blue; */
+	padding: 100px 10% 100px 10%;
+}
+
+.articleTitle {
+	height: auto;
+	padding: 5% 5% 5% 5%;
+	border-radius: 100px;
+	background-image: url("../img/bgi.jpg");
+	background-size: cover;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "title .";
+	align-content: stretch;
+
+	justify-items: center;
+}
+
+
+.articleTitle .articleTitleFixed {
+	border: 2px;
+	grid-area: "title";
+	justify-self: start;
+	align-self: center;
+}
+
+.articleTitle .articleTitleFixed h1 {
+	font-size: 48pt;
+	font-family: 'MicrosoftYaHei';
+	font-weight: bold;
+	color: #FFFFFF;
+	line-height: 0.5;
+	/* margin-bottom: 0; */
+}
+
+.articleList {
+	height: auto;
+}
+
+.articleList ul {
+	padding: 0;
+	list-style-type: none;
+	
+	/* list-style-position: inside; */
+}
+
+.articleList ul li {
+	/* border: 2px solid brown; */
+	padding: 0 0 0 5%;
+	background-color: #3F3F3F;
+	display: grid;
+	grid-template-areas: "pic info";
+	grid-template-columns: 1fr 3fr;
+	margin: 10px;
+}
+
+.articlePicture {
+	border: 5pt;
+	grid-area: "pic";
+	align-self: center;
+	justify-self: start;
+}
+
+.articlePicture img {
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: -50px 0px;
+	background-size: 300px 200px;
+	background-color: transparent;
+	width: 200px;
+	height: 200px;
+}
+
+.articleInfo {
+	border: 15pt;
+	grid-area: "info";
+	align-self: center;
+	justify-self: start;
+}
+
+p.articleInfoType {
+	font-size: 20pt;
+	font-family: 'MicrosoftYaHei';
+	color: #FFFFFF;
+	line-height: 0.2;
+}
+
+p.articleInfoName {
+	font-size: 32pt;
+	font-family: 'MicrosoftYaHei';
+	color: #FFFFFF;
+	line-height: 0.2;
+}
+
+p.articleInfoDetail {
+	font-size: 16pt;
+	font-family: 'MicrosoftYaHei';
+	color: #FFFFFF;
+	line-height: 0.2;
+}

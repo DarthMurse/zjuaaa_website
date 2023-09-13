@@ -1,0 +1,170 @@
+@font-face {
+	font-family: MicrosoftYaHei;
+	src: url('font/MicrosoftYaHei.ttf').format('opentype');
+}
+
+body {
+	margin: 0;
+	border: 0;
+	font-size: 20px;
+	font-family: MicrosoftYaHei;
+	background-color: #2F2F2F;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 这里是上方导航栏的代码。*/
+div.header {
+	margin: 0;
+	background-color: #1F1F1F;
+	position: fixed;
+	width: 100%;
+	padding: 10px 0px 30px 0px;
+	height: 50px;
+	z-index: 10;
+}
+
+div.header a {
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 20px 10px 20px;
+	margin-top: 10px;
+	text-decoration: none;
+	display: inline block;
+}
+
+div.header a.first {
+	color: rgb(161, 229, 182);
+}
+
+div.header a.first {
+	margin-left: 10%;
+}
+
+div.header a.first:hover {
+	color: rgb(161, 229, 182);
+}
+
+div.header a.knowledge:hover {
+	color: rgb(123, 232, 211);
+}
+
+div.header a.activity:hover {
+	color: rgb(80, 183, 224);
+}
+
+div.header a.about:hover {
+	color: rgb(38, 131, 227);
+}
+
+div.header a.bilibili:hover {
+	color: rgb(111, 76, 222);
+}
+
+a#button1 {
+	background-color: white;
+	color: black;
+	display: inline block;
+	padding: 10px 20px 10px 20px;
+	border-radius: 30px;
+	float: right;
+	margin-right: 10%;
+}
+
+a#button1:hover {
+	background-color: #4F4F4F;
+	color: white;
+}
+/* 上方导航栏的代码到此结束。*/
+
+/* 下面是main部分的代码。*/
+.main {
+	color: white;
+	background: #2F2F2F;
+	margin-top: 100px;
+	font-family: MicrosoftYaHei;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 5%;
+	padding-bottom: 30px;
+	float: left;
+}
+
+.main p#title {
+	font-size: 32px;
+}
+
+.side {
+	float: right;
+	margin-top: 180px;
+	padding-right: 5%;
+}
+
+.side img {
+	width: 200px;
+	height: 200px;
+}
+
+/* 下面是尾页的代码。*/
+.footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 30pt;
+    clear: both;
+    color: #F0F2F5;
+    text-align: left;
+    height: 300pt;
+	float: bottom;
+}
+
+.footer ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+.footer li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 12pt;
+}
+.footer #tail-introduction {
+    float: left;
+    margin-left: 140pt;
+    width: 25%;
+}
+.footer #tail-introduction p {
+    font-size: 10pt;
+}
+.footer h4 {
+    font-size: 14pt;
+}
+.footer #tail1 {
+    float: right;
+    margin-right: 5%;
+}
+.footer #tail2 {
+    float: right;
+    margin-right: 5%;
+}
+.footer #tail3 {
+    float: right;
+    margin-right: 5%;
+}
+.footer #tail4 {
+    float: right;
+    margin-right: 10%;
+    margin-bottom: 200pt;
+}
+.footer #hr2 {
+    margin-bottom: 60pt;
+}
+
+.copyright {
+    text-align: center;
+    bottom: 10px;
+}
