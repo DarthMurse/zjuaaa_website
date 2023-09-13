@@ -55,3 +55,9 @@ A repository to store all the codes and resources for the Zhejiang University Am
 9.9 23:16 zzy
 
 完成了联系我们页面的设计
+
+---
+9.13 15:39 pb
+
+完成了图库页和详情页的设计
+
