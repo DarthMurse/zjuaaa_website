@@ -83,6 +83,12 @@ body {
 .right-nav-img {
     cursor: pointer;
     transition: transform 0.2s;
+    border-radius: 3px;
+}
+
+.right-nav-img.selected img {
+
+    border-radius: 2px;
 }
 
 .right-nav-img.selected {
