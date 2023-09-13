@@ -1,0 +1,21 @@
+:root {
+    font-size: 20px;
+}
+
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.header {
+    box-sizing: content-box;
+    padding: inherit;
+}
+
+.waterflow-images{
+    cursor: pointer;
+}
+
+.waterflow-images.hidden {
+    display: none;
+}
