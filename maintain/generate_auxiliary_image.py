@@ -62,7 +62,7 @@ def draw_small(src, dst, file_name_head):
     small_image = src.copy()
     small_image.thumbnail((small_maxWidth, small_maxHeight),
                           resample=Image.Resampling.LANCZOS)
-    small_image.save(dst + "small_" + file_name_head + ".png",
+    small_image.save(dst + "middle_" + file_name_head + ".png",
                      icc_profile=img_icc)
 
 
@@ -147,7 +147,7 @@ def draw_histogram(src, dst, file_name_head):
 
 
 dst_full = "masterpiece/full/"
-dst_small = "masterpiece/small/"
+dst_small = "masterpiece/middle/"
 dst_thumbnail = "masterpiece/thumbnail/"
 dst_hist = "masterpiece/histogram/"
 

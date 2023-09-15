@@ -2,7 +2,7 @@
     "M42 test1": {
         "image-name": "M42 test1",
         "full-image": "/masterpiece/full/M42_SHO2.png",
-        "middle-image": "/masterpiece/thumbnail/thumbnail_M42_SHO2.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_M42_SHO2.png",
         "histogram-image": "/masterpiece/histogram/histogram_M42_SHO2.png",
         "skyplot-image": "/masterpiece/skyplot/skyplot_M42_SHO2.png",
         "base-information": {
@@ -38,8 +38,9 @@
     },
     "xyjj and loki 1（好甜）": {
         "image-name": "xyjj and loki 1（好甜）",
-        "full-image": "/masterpiece/full/xyjj1.png",
-        "middle-image": "/masterpiece/thumbnail/thumbnail_xyjj1.png",
+        "full-image": "/masterpiece/full/full_xyjj1.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_xyjj1.png",
+        "middle-image": "/masterpiece/middle/middle_xyjj1.png",
         "histogram-image": "/masterpiece/histogram/histogram_xyjj1.png",
         "skyplot-image": "",
         "base-information": {
@@ -76,7 +77,7 @@
     "冷湖合影": {
         "image-name": "冷湖合影",
         "full-image": "/masterpiece/full/zjuaaa all 1.jpg",
-        "middle-image": "/masterpiece/thumbnail/thumbnail_zjuaaa all 1.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_zjuaaa all 1.png",
         "histogram-image": "/masterpiece/histogram/histogram_zjuaaa all 1.png",
         "skyplot-image": "",
         "base-information": {
@@ -113,7 +114,7 @@
     "M27": {
         "image-name": "M27",
         "full-image": "/masterpiece/full/M27.png",
-        "middle-image": "/masterpiece/thumbnail/thumbnail_M27.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_M27.png",
         "histogram-image": "/masterpiece/histogram/histogram_M27.png",
         "skyplot-image": "/masterpiece/skyplot/skyplot_M27.png",
         "base-information": {
@@ -150,7 +151,7 @@
     "月食 cby": {
         "image-name": "月食 cby",
         "full-image": "/masterpiece/full/DSC01823.png",
-        "middle-image": "/masterpiece/thumbnail/thumbnail_DSC01823.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_DSC01823.png",
         "histogram-image": "/masterpiece/histogram/histogram_DSC01823.png",
         "skyplot-image": "",
         "base-information": {

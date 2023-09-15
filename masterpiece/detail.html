@@ -430,7 +430,7 @@
     function get_nav_image(nav_image_list, image_name) {
         $.getJSON(image_information_path, function (result) {
             for (var i = 0; i < nav_image_list.length; i++) {
-                $("#right-bar-image" + (i + 1)).children("img").attr("src", result[nav_image_list[i]]["middle-image"]);
+                $("#right-bar-image" + (i + 1)).children("img").attr("src", result[nav_image_list[i]]["thumbnail-image"]);
                 $("#right-bar-image" + (i + 1)).attr("img-name", nav_image_list[i]);
                 if (nav_image_list[i] == image_name) {
                     $("#right-bar-image" + (i + 1)).addClass("selected");

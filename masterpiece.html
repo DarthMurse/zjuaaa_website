@@ -84,7 +84,7 @@
     async function get_waterflow_image(image_list) {
         await $.getJSON(image_information_path, function (result) {
             for (var i = 0; i < image_list.length; i++) {
-                $(".waterflow-images").eq(i).children("img").attr("src", result[image_list[i]]["middle-image"]);
+                $(".waterflow-images").eq(i).children("img").attr("src", result[image_list[i]]["thumbnail-image"]);
                 $(".waterflow-images").eq(i).children("img").attr("img-name", image_list[i]);
             }
         });
