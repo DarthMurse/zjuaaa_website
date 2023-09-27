@@ -3,26 +3,26 @@ import matplotlib.pyplot as plt
 import os
 from PIL import Image, ImageCms
 import io
+import shutil
 
 thumbnail_maxWidth = 360
-thumbnial_maxHeight = 360
+thumbnial_maxHeight = 1280
 
 small_maxWidth = 1280
 small_maxHeight = 1280
 
 origin_path = "../origin1/"
-file_name = "xyjj1.png"
+src_name = "xyjj1.png"
 
 file_name_save_head = "xyjj1"
 
-file_name_head, file_extension = os.path.splitext(file_name)
+src_name_head, src_extension = os.path.splitext(src_name)
 
-src = Image.open(origin_path + file_name)
+src = Image.open(origin_path + src_name)
 
 srgb_icc = ImageCms.createProfile("sRGB")
 srgb_icc_bytes = ImageCms.ImageCmsProfile(srgb_icc).tobytes()
 
-print(src.mode)
 if (src.mode == "RGB" or src.mode == "RGBA"):
     src_array = np.asarray(src)
     if ((src_array[:, :, 0] == src_array[:, :, 1]).all()
@@ -54,8 +54,8 @@ else:
     exit(1)
 
 
-def process_full(src, dst, file_name_head):
-    src.save(dst + "full_" + file_name_head + ".png", icc_profile=img_icc)
+def process_full(src_path, dst, file_name):
+    shutil.copyfile(src_path, dst + "full_" + file_name)
 
 
 def draw_small(src, dst, file_name_head):
@@ -154,6 +154,7 @@ dst_hist = "masterpiece/histogram/"
 draw_thumbnail(src, dst_thumbnail, file_name_save_head)
 draw_small(src, dst_small, file_name_save_head)
 draw_histogram(src, dst_hist, file_name_save_head)
-process_full(src, dst_full, file_name_save_head)
+process_full(origin_path + src_name, dst_full,
+             file_name_save_head + src_extension)
 
 print("Done!")

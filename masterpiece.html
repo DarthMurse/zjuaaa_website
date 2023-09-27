@@ -85,7 +85,7 @@
         await $.getJSON(image_information_path, function (result) {
             for (var i = 0; i < image_list.length; i++) {
                 $(".waterflow-images").eq(i).children("img").attr("src", result[image_list[i]]["thumbnail-image"]);
-                $(".waterflow-images").eq(i).children("img").attr("img-name", image_list[i]);
+                $(".waterflow-images").eq(i).children("img").attr("img-filename", image_list[i]);
             }
         });
         await $(".waterflow-images img").imagesLoaded(async function (images) {
@@ -96,8 +96,8 @@
     start_function();
 
     $(".waterflow-images").on("click", function () {
-        var img_name = $(this).children("img").attr("img-name");
+        var img_filename = $(this).children("img").attr("img-filename");
         window.location.href = "/masterpiece/detail.html";
-        document.cookie = "current-img=" + img_name + "; path=/";
+        document.cookie = "current-img=" + img_filename + "; path=/";
     });
 </script>
