@@ -1,0 +1,10 @@
+{
+    "python.analysis.typeCheckingMode": "off",
+    "[python]": {
+        "editor.defaultFormatter": "eeyore.yapf"
+    },
+    "python.formatting.provider": "none",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false
+}
