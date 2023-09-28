@@ -75,4 +75,10 @@ A repository to store all the codes and resources for the Zhejiang University Am
 
 9.28 16:57 pb
 
-使用bfs清理已提交的大文件
+使用bfs清理已提交的大文件，整个仓库基本都更新过了
+
+---
+
+9.28 17:07 pb
+
+使用git lfs管理图片文件
