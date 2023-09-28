@@ -1,0 +1,6 @@
+masterpiece/full/ filter=lfs diff=lfs merge=lfs -text
+masterpiece/thumbnail/ filter=lfs diff=lfs merge=lfs -text
+masterpiece/small/ filter=lfs diff=lfs merge=lfs -text
+masterpiece/middle/ filter=lfs diff=lfs merge=lfs -text
+masterpiece/histogram/ filter=lfs diff=lfs merge=lfs -text
+masterpiece/skyplot/ filter=lfs diff=lfs merge=lfs -text

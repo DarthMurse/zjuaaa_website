@@ -27,6 +27,7 @@ body {
 
 #middle-window #middle-image {
     cursor: zoom-in;
+    max-height: calc(100vh) !important;
 }
 
 #middle-window #image-name-middle {
