@@ -582,7 +582,7 @@ class Application(tk.Frame):
         self.master = master
         self.json_path = json_path
 
-        self.img_limit_MB = 20
+        self.img_limit_MB = 20  # 图片大小限制，单位MB
 
         self.import_full_path = None
         self.import_skyplot_path = None
@@ -671,514 +671,501 @@ class Application(tk.Frame):
 
         self.table.bind('<<TreeviewSelect>>', self.img_selection_callback)
 
+    def import_img_file(self, target):
+        '''导入图片文件窗口'''
+
+        def submit_img(target):
+            '''提交文件路径'''
+
+            def validate_import_img(img_path):
+                '''验证图片文件路径是否正确'''
+
+                if img_path == '':
+                    messagebox.showerror('错误', '图片路径不能为空')
+                    return False
+
+                if not os.path.exists(img_path):
+                    messagebox.showerror('错误', '图片文件不存在')
+                    return False
+                allowed_format = ('.jpg', '.jpeg', '.png', '.bmp')
+                if not img_path.lower().endswith(allowed_format):
+                    messagebox.showerror('错误', '不支持该图片格式')
+                    return False
+                return True
+
+            img_path = self.entry_img_import_top_bind.get().strip()
+            valid = validate_import_img(img_path)
+            if valid:
+                size_str, valid = get_img_size(img_path, self.img_limit_MB)
+                resolution_str = get_img_resolution(img_path)
+                if valid:
+                    match target:
+                        case 'full':
+
+                            self.import_full_path = self.entry_img_import_top_bind.get(
+                            ).strip()
+                            show_temp_path = '/masterpiece/full/full_' + os.path.basename(
+                                self.import_full_path)
+                            self.entry_file_path_bind.set(show_temp_path)
+                            self.entry_file_size_bind.set(size_str)
+                            self.entry_resolution_bind.set(resolution_str)
+                            self.init_image_preview(
+                                self.Frame_image_preview,
+                                full_path=self.import_full_path)
+
+                        case 'skyplot':
+                            self.import_skyplot_path = self.entry_img_import_top_bind.get(
+                            ).strip()
+                            show_temp_path = '/masterpiece/skyplot/skyplot_' + os.path.basename(
+                                self.import_skyplot_path)
+                            self.entry_skyplot_path_bind.set(show_temp_path)
+                            self.init_image_preview(
+                                self.Frame_image_preview,
+                                skypath=self.import_skyplot_path)
+
+                    self.img_import_top_window.destroy()
+                else:
+                    messagebox.showerror(
+                        '错误', '图片大于' + str(self.img_limit_MB) + 'MB')
+                    self.entry_img_import_top_bind.set('')
+            else:
+                self.entry_img_import_top_bind.set('')
+
+        self.img_import_top_window = tk.Toplevel(self.master)
+        x, y = self.master.winfo_rootx(), self.master.winfo_rooty()
+        self.img_import_top_window.geometry('+%d+%d' % (x, y + 30))
+        self.img_import_top_window.grab_set()
+        match target:
+            case 'full':
+                self.img_import_top_window.title('导入图片')
+                self.Label_img_import = tk.Label(self.img_import_top_window,
+                                                 text='图片路径')
+
+            case 'skyplot':
+                self.img_import_top_window.title('导入天区图')
+                self.Label_img_import = tk.Label(self.img_import_top_window,
+                                                 text='天区图路径')
+
+        self.Label_img_import.grid(row=0, column=0, padx=10)
+
+        self.entry_img_import_top_bind = tk.StringVar()
+        self.entry_img_import = tk.Entry(
+            self.img_import_top_window,
+            textvariable=self.entry_img_import_top_bind,
+            width=60)
+        self.entry_img_import.grid(row=0, column=1, columnspan=3, sticky=E)
+
+        def open_file_dialog():
+            file_path_select = filedialog.askopenfilename(
+                parent=self.img_import_top_window)
+            self.entry_img_import_top_bind.set(file_path_select)
+
+        self.entry_dialog = tk.Button(self.img_import_top_window,
+                                      text='...',
+                                      command=open_file_dialog)
+        self.entry_dialog.grid(row=0, column=4, sticky=W)
+
+        self.button_img_import_submit = tk.Button(
+            self.img_import_top_window,
+            text='确定',
+            command=lambda: submit_img(target))
+        self.button_img_import_submit.grid(row=1, column=4, sticky=W)
+
+    def init_file_base(self, master):
+        '''显示图片文件信息'''
+        self.Label_img_name = tk.Label(master, text='图片名称')
+        self.Label_img_name.grid(row=0, column=0, padx=10, sticky=E)
+
+        self.entry_img_name_bind = tk.StringVar()
+        self.entry_img_name = tk.Entry(master,
+                                       textvariable=self.entry_img_name_bind)
+        self.entry_img_name.grid(row=0, column=1, padx=10, sticky=W)
+
+        self.Label_file_name = tk.Label(master, text='目标文件名')
+        self.Label_file_name.grid(row=0, column=2, padx=10, sticky=E)
+
+        self.entry_file_name_bind = tk.StringVar()
+        self.entry_file_name = tk.Entry(master,
+                                        textvariable=self.entry_file_name_bind)
+        self.entry_file_name.grid(row=0, column=3, padx=10, sticky=W)
+
+        self.entry_file_name.bind('<KeyRelease>',
+                                  self.update_file_name_to_path_callback)
+
+        self.Label_file_path = tk.Label(master, text='图片路径')
+        self.Label_file_path.grid(row=1, column=0, padx=10)
+
+        self.entry_file_path_bind = tk.StringVar()
+        self.entry_file_path = tk.Label(master,
+                                        textvariable=self.entry_file_path_bind,
+                                        width=60,
+                                        bd=2,
+                                        relief='groove',
+                                        anchor=W)
+        self.entry_file_path.grid(row=1, column=1, columnspan=3, sticky=E)
+
+        self.button_img_import = tk.Button(
+            master, text='导入图片', command=lambda: self.import_img_file('full'))
+        self.button_img_import.grid(row=1, column=4, sticky=W)
+
+        self.Label_skyplot_path = tk.Label(master, text='天区图路径')
+        self.Label_skyplot_path.grid(row=2, column=0, padx=10)
+
+        self.entry_skyplot_path_bind = tk.StringVar()
+        self.entry_skyplot_path = tk.Label(
+            master,
+            textvariable=self.entry_skyplot_path_bind,
+            width=60,
+            bd=2,
+            relief='groove',
+            anchor=W)
+        self.entry_skyplot_path.grid(row=2, column=1, columnspan=3, sticky=E)
+
+        self.button_skyplot_path = tk.Button(
+            master,
+            text='导入天区图',
+            command=lambda: self.import_img_file('skyplot'))
+        self.button_skyplot_path.grid(row=2, column=4, sticky=W)
+
+    def update_date_popup(self):
+        '''日期弹出窗口'''
+
+        def update_date():
+            self.entry_upload_date_bind.set(self.cal_update.get_date())
+            self.cal_update_top.destroy()
+
+        self.cal_update_top = tk.Toplevel(self.master)
+        self.cal_update_top.title('选择日期')
+        x, y = self.calendar_upload_date.winfo_rootx(
+        ), self.calendar_upload_date.winfo_rooty()
+        self.cal_update_top.geometry('+%d+%d' % (x, y + 30))
+        self.cal_update_top.grab_set()
+        self.cal_update = Calendar(self.cal_update_top,
+                                   selectmode='day',
+                                   date_pattern='y年m月d日')
+        self.cal_update.grid()
+        self.cal_update_submit_button = tk.Button(self.cal_update_top,
+                                                  text='确定',
+                                                  command=update_date)
+        self.cal_update_submit_button.grid()
+
+    def init_update_date(self, master, prefix):
+        '''添加日期'''
+
+        self.entry_upload_date_bind = tk.StringVar()
+        if prefix:
+            self.entry_upload_date_bind.set(
+                Calendar(master, date_pattern='y年m月d日').get_date())
+        self.entry_upload_date = tk.Entry(
+            master, textvariable=self.entry_upload_date_bind)
+        self.entry_upload_date.grid(row=0, column=0, padx=0)
+
+        self.calendar_upload_date = tk.Button(master,
+                                              text='...',
+                                              command=self.update_date_popup)
+        self.calendar_upload_date.grid(row=0, column=1, padx=0)
+
+    def init_base_info(self, master, prefix):
+        '''显示基本信息'''
+
+        self.Label_photographer = tk.Label(master, text='作者（们）')
+        self.Label_photographer.grid(row=0, column=0, padx=10, sticky=W)
+
+        self.entry_photographer_bind = tk.StringVar()
+        self.entry_photographer = tk.Entry(
+            master, textvariable=self.entry_photographer_bind)
+        self.entry_photographer.grid(row=0, column=1, padx=10, sticky=W)
+
+        self.Label_target_name = tk.Label(master, text='目标名称')
+        self.Label_target_name.grid(row=1, column=0, padx=10, sticky=W)
+
+        self.entry_target_name_bind = tk.StringVar()
+        self.entry_target_name = tk.Entry(
+            master, textvariable=self.entry_target_name_bind)
+        self.entry_target_name.grid(row=2, column=1, padx=10, sticky=W)
+
+        self.Label_skyplot = tk.Label(master, text='天区位置')
+        self.Label_skyplot.grid(row=2, column=0, padx=10, sticky=W)
+
+        self.entry_skyplot_bind = tk.StringVar()
+        self.entry_skyplot = tk.Entry(master,
+                                      textvariable=self.entry_skyplot_bind)
+        self.entry_skyplot.grid(row=1, column=1, padx=10, sticky=W)
+
+        self.Label_upload_date = tk.Label(master, text='添加日期')
+        self.Label_upload_date.grid(row=3, column=0, padx=10, sticky=W)
+
+        self.Frame_upload_date = tk.Frame(master)
+        self.Frame_upload_date.grid(row=3, column=1, padx=10, sticky=W)
+        self.init_update_date(self.Frame_upload_date, prefix=prefix)
+
+        self.Label_image_description = tk.Label(master, text='图片描述')
+        self.Label_image_description.grid(row=4, column=0, padx=10, sticky=W)
+
+        self.entry_image_description = tk.Text(master, width=25, height=5)
+        self.entry_image_description.grid(row=4, column=1, padx=10, sticky=W)
+
+    def init_shoot_info(self, master):
+        '''显示拍摄信息'''
+        self.Label_shoot_date = tk.Label(master, text='拍摄日期')
+        self.Label_shoot_date.grid(row=0, column=0, padx=10, sticky=W)
+
+        self.entry_shoot_date = tk.Text(master, width=25, height=3)
+        self.entry_shoot_date.grid(row=0, column=1, padx=10, sticky=W)
+
+        self.Label_location = tk.Label(master, text='拍摄地点')
+        self.Label_location.grid(row=1, column=0, padx=10, sticky=W)
+
+        self.entry_location_bind = tk.StringVar()
+        self.entry_location = tk.Entry(master,
+                                       textvariable=self.entry_location_bind,
+                                       width=25)
+        self.entry_location.grid(row=1, column=1, padx=10, sticky=W)
+
+        self.Label_exposure = tk.Label(master, text='曝光时间')
+        self.Label_exposure.grid(row=2, column=0, padx=10, sticky=W)
+
+        self.entry_exposure = tk.Text(master, width=25, height=5)
+        self.entry_exposure.grid(row=2, column=1, padx=10, sticky=W)
+
+    def init_equipment_info(self, master):
+        '''显示设备信息'''
+        self.Label_telescope = tk.Label(master, text='望远镜')
+        self.Label_telescope.grid(row=0, column=0, padx=10, sticky=W)
+
+        self.entry_telescope_bind = tk.StringVar()
+        self.entry_telescope = tk.Entry(master,
+                                        textvariable=self.entry_telescope_bind,
+                                        width=26)
+        self.entry_telescope.grid(row=0, column=1, padx=10, sticky=W)
+
+        self.Label_camera = tk.Label(master, text='相机')
+        self.Label_camera.grid(row=1, column=0, padx=10, sticky=W)
+
+        self.entry_camera_bind = tk.StringVar()
+        self.entry_camera = tk.Entry(master,
+                                     textvariable=self.entry_camera_bind,
+                                     width=26)
+        self.entry_camera.grid(row=1, column=1, padx=10, sticky=W)
+
+        self.Label_mount = tk.Label(master, text='底座')
+        self.Label_mount.grid(row=2, column=0, padx=10, sticky=W)
+
+        self.entry_mount_bind = tk.StringVar()
+        self.entry_mount = tk.Entry(master,
+                                    textvariable=self.entry_mount_bind,
+                                    width=26)
+        self.entry_mount.grid(row=2, column=1, padx=10, sticky=W)
+
+        self.Label_filter = tk.Label(master, text='滤镜')
+        self.Label_filter.grid(row=3, column=0, padx=10, sticky=W)
+
+        self.entry_filter_bind = tk.StringVar()
+        self.entry_filter = tk.Entry(master,
+                                     textvariable=self.entry_filter_bind,
+                                     width=26)
+        self.entry_filter.grid(row=3, column=1, padx=10, sticky=W)
+
+        self.Label_guide_camera = tk.Label(master, text='导星相机')
+        self.Label_guide_camera.grid(row=4, column=0, padx=10, sticky=W)
+
+        self.entry_guide_camera_bind = tk.StringVar()
+        self.entry_guide_camera = tk.Entry(
+            master, textvariable=self.entry_guide_camera_bind, width=26)
+        self.entry_guide_camera.grid(row=4, column=1, padx=10, sticky=W)
+
+        self.Label_focuser = tk.Label(master, text='调焦')
+        self.Label_focuser.grid(row=5, column=0, padx=10, sticky=W)
+
+        self.entry_focuser_bind = tk.StringVar()
+        self.entry_focuser = tk.Entry(master,
+                                      textvariable=self.entry_focuser_bind,
+                                      width=26)
+        self.entry_focuser.grid(row=5, column=1, padx=10, sticky=W)
+
+        self.Label_accessory = tk.Label(master, text='附件')
+        self.Label_accessory.grid(row=6, column=0, padx=10, sticky=W)
+
+        self.entry_accessory = tk.Text(master, width=25, height=2)
+        self.entry_accessory.grid(row=6, column=1, padx=10, sticky=W)
+
+        self.Label_software = tk.Label(master, text='软件')
+        self.Label_software.grid(row=7, column=0, padx=10, sticky=W)
+
+        self.entry_software_bind = tk.StringVar()
+        self.entry_software = tk.Entry(master,
+                                       textvariable=self.entry_software_bind,
+                                       width=26)
+        self.entry_software.grid(row=7, column=1, padx=10, sticky=W)
+
+    def init_RA(self, master):
+        '''赤经'''
+        self.entry_RA_h_bind = tk.StringVar()
+        self.entry_RA_h = tk.Entry(master,
+                                   textvariable=self.entry_RA_h_bind,
+                                   width=4)
+        self.entry_RA_h.grid(row=0, column=0, padx=0)
+
+        self.Label_RA_h = tk.Label(master, text='h', width=2)
+        self.Label_RA_h.grid(row=0, column=1, padx=0)
+
+        self.entry_RA_m_bind = tk.StringVar()
+        self.entry_RA_m = tk.Entry(master,
+                                   textvariable=self.entry_RA_m_bind,
+                                   width=4)
+        self.entry_RA_m.grid(row=0, column=2, padx=0)
+
+        self.Label_RA_m = tk.Label(master, text='m', width=2)
+        self.Label_RA_m.grid(row=0, column=3, padx=0)
+
+        self.entry_RA_s_bind = tk.StringVar()
+        self.entry_RA_s = tk.Entry(master,
+                                   textvariable=self.entry_RA_s_bind,
+                                   width=6)
+        self.entry_RA_s.grid(row=0, column=4, padx=0)
+
+        self.Label_RA_s = tk.Label(master, text='s', width=2)
+        self.Label_RA_s.grid(row=0, column=5, padx=0)
+
+    def init_DEC(self, master):
+        '''赤纬'''
+        self.entry_DEC_h_bind = tk.StringVar()
+        self.entry_DEC_h = tk.Entry(master,
+                                    textvariable=self.entry_DEC_h_bind,
+                                    width=4)
+        self.entry_DEC_h.grid(row=0, column=0, padx=0)
+
+        self.Label_DEC_h = tk.Label(master, text='°', width=2)
+        self.Label_DEC_h.grid(row=0, column=1, padx=0)
+
+        self.entry_DEC_m_bind = tk.StringVar()
+        self.entry_DEC_m = tk.Entry(master,
+                                    textvariable=self.entry_DEC_m_bind,
+                                    width=4)
+        self.entry_DEC_m.grid(row=0, column=2, padx=0)
+
+        self.Label_DEC_m = tk.Label(master, text='\'', width=2)
+        self.Label_DEC_m.grid(row=0, column=3, padx=0)
+
+        self.entry_DEC_s_bind = tk.StringVar()
+        self.entry_DEC_s = tk.Entry(master,
+                                    textvariable=self.entry_DEC_s_bind,
+                                    width=6)
+        self.entry_DEC_s.grid(row=0, column=4, padx=0)
+
+        self.Label_DEC_s = tk.Label(master, text='"', width=2)
+        self.Label_DEC_s.grid(row=0, column=5, padx=0)
+
+    def init_pixel_scale(self, master):
+        '''像素分辨率'''
+        self.entry_pixel_scale_bind = tk.StringVar()
+        self.entry_pixel_scale = tk.Entry(
+            master, textvariable=self.entry_pixel_scale_bind, width=6)
+        self.entry_pixel_scale.grid(row=0, column=0, padx=0)
+
+        self.combo_pixel_scale = ttk.Combobox(master,
+                                              state='readonly',
+                                              width=4)
+        self.combo_pixel_scale['values'] = ('"/px', '\'/px', '°/px')
+        self.combo_pixel_scale.current(0)
+        self.combo_pixel_scale.grid(row=0, column=1, padx=0)
+
+    def init_FOV(self, master):
+        '''视场大小'''
+        self.entry_FOV_width_bind = tk.StringVar()
+        self.entry_FOV_width = tk.Entry(master,
+                                        textvariable=self.entry_FOV_width_bind,
+                                        width=6)
+        self.entry_FOV_width.grid(row=0, column=0, padx=0)
+
+        self.Label_FOV_plus = tk.Label(master, text='x')
+        self.Label_FOV_plus.grid(row=0, column=1, padx=0)
+
+        self.entry_FOV_height_bind = tk.StringVar()
+        self.entry_FOV_height = tk.Entry(
+            master, textvariable=self.entry_FOV_height_bind, width=6)
+        self.entry_FOV_height.grid(row=0, column=2, padx=0)
+
+        self.combo_FOV = ttk.Combobox(master, state='readonly', width=1)
+        self.combo_FOV['values'] = ('"', '\'', '°')
+        self.combo_FOV.current(2)
+        self.combo_FOV.grid(row=0, column=3, padx=0)
+
+    def init_advanced_info(self, master):
+        '''显示高级信息'''
+
+        self.Label_file_size = tk.Label(master, text='文件大小')
+        self.Label_file_size.grid(row=0, column=0, padx=10, sticky=W)
+
+        self.entry_file_size_bind = tk.StringVar()
+        self.entry_file_size = tk.Label(master,
+                                        textvariable=self.entry_file_size_bind,
+                                        bd=2,
+                                        relief='groove',
+                                        width=15)
+        self.entry_file_size.grid(row=0, column=1, padx=10, sticky=W)
+
+        self.Label_resolution = tk.Label(master, text='分辨率')
+        self.Label_resolution.grid(row=1, column=0, padx=10, sticky=W)
+
+        self.entry_resolution_bind = tk.StringVar()
+        self.entry_resolution = tk.Label(
+            master,
+            textvariable=self.entry_resolution_bind,
+            bd=2,
+            relief='groove',
+            width=15)
+        self.entry_resolution.grid(row=1, column=1, padx=10, sticky=W)
+
+        self.Label_RA = tk.Label(master, text='赤经')
+        self.Label_RA.grid(row=2, column=0, padx=10, sticky=W)
+
+        self.entry_RA = tk.Frame(master)
+        self.entry_RA.grid(row=2, column=1, padx=10, sticky=W)
+
+        self.init_RA(self.entry_RA)
+
+        self.Label_DEC = tk.Label(master, text='赤纬')
+        self.Label_DEC.grid(row=3, column=0, padx=10, sticky=W)
+
+        self.entry_DEC = tk.Frame(master)
+        self.entry_DEC.grid(row=3, column=1, padx=10, sticky=W)
+
+        self.init_DEC(self.entry_DEC)
+
+        self.Label_pixel_scale = tk.Label(master, text='像素分辨率')
+        self.Label_pixel_scale.grid(row=4, column=0, padx=10, sticky=W)
+
+        self.Frame_pixel_scale = tk.Frame(master)
+        self.Frame_pixel_scale.grid(row=4, column=1, padx=10, sticky=W)
+
+        self.init_pixel_scale(self.Frame_pixel_scale)
+
+        self.Label_FOV = tk.Label(master, text='视场大小')
+        self.Label_FOV.grid(row=5, column=0, padx=10, sticky=W)
+
+        self.Frame_FOV = tk.Frame(master)
+        self.Frame_FOV.grid(row=5, column=1, padx=10, sticky=W)
+
+        self.init_FOV(self.Frame_FOV)
+
+    def init_buton(self, master):
+        '''保存、重置、取消按钮''' ''
+        self.Button_submit = tk.Button(master,
+                                       text='保存',
+                                       command=self.save_data)
+        self.Button_submit.grid(row=0, column=0, padx=10, pady=10)
+
+        self.Button_reset = tk.Button(
+            master, text='重置', command=lambda: self.reset_info(mode='reset'))
+        self.Button_reset.grid(row=0, column=1, padx=10, pady=10)
+
+        self.Button_cancel = tk.Button(
+            master, text='取消', command=lambda: self.reset_info(mode='cancel'))
+        self.Button_cancel.grid(row=0, column=2, padx=10, pady=10)
+
     def init_info_window(self, master, prefix=False):
         '''信息窗口初始化'''
-
-        def import_img_file(target):
-            '''导入图片文件窗口'''
-
-            def submit_img(target):
-                '''提交文件路径'''
-
-                def validate_import_img(img_path):
-                    '''验证图片文件路径是否正确'''
-
-                    if img_path == '':
-                        messagebox.showerror('错误', '图片路径不能为空')
-                        return False
-
-                    if not os.path.exists(img_path):
-                        messagebox.showerror('错误', '图片文件不存在')
-                        return False
-                    allowed_format = ('.jpg', '.jpeg', '.png', '.bmp')
-                    if not img_path.lower().endswith(allowed_format):
-                        messagebox.showerror('错误', '不支持该图片格式')
-                        return False
-                    return True
-
-                img_path = self.entry_img_import_top_bind.get().strip()
-                valid = validate_import_img(img_path)
-                if valid:
-                    size_str, valid = get_img_size(img_path, self.img_limit_MB)
-                    resolution_str = get_img_resolution(img_path)
-                    if valid:
-                        match target:
-                            case 'full':
-
-                                self.import_full_path = self.entry_img_import_top_bind.get(
-                                ).strip()
-                                show_temp_path = '/masterpiece/full/full_' + os.path.basename(
-                                    self.import_full_path)
-                                self.entry_file_path_bind.set(show_temp_path)
-                                self.entry_file_size_bind.set(size_str)
-                                self.entry_resolution_bind.set(resolution_str)
-                                self.init_image_preview(
-                                    self.Frame_image_preview,
-                                    full_path=self.import_full_path)
-
-                            case 'skyplot':
-                                self.import_skyplot_path = self.entry_img_import_top_bind.get(
-                                ).strip()
-                                show_temp_path = '/masterpiece/skyplot/skyplot_' + os.path.basename(
-                                    self.import_skyplot_path)
-                                self.entry_skyplot_path_bind.set(
-                                    show_temp_path)
-                                self.init_image_preview(
-                                    self.Frame_image_preview,
-                                    skypath=self.import_skyplot_path)
-
-                        self.img_import_top_window.destroy()
-                    else:
-                        messagebox.showerror(
-                            '错误', '图片大于' + str(self.img_limit_MB) + 'MB')
-                        self.entry_img_import_top_bind.set('')
-                else:
-                    self.entry_img_import_top_bind.set('')
-
-            self.img_import_top_window = tk.Toplevel(self.master)
-            x, y = self.master.winfo_rootx(), self.master.winfo_rooty()
-            self.img_import_top_window.geometry('+%d+%d' % (x, y + 30))
-            self.img_import_top_window.grab_set()
-            match target:
-                case 'full':
-                    self.img_import_top_window.title('导入图片')
-                    self.Label_img_import = tk.Label(
-                        self.img_import_top_window, text='图片路径')
-
-                case 'skyplot':
-                    self.img_import_top_window.title('导入天区图')
-                    self.Label_img_import = tk.Label(
-                        self.img_import_top_window, text='天区图路径')
-
-            self.Label_img_import.grid(row=0, column=0, padx=10)
-
-            self.entry_img_import_top_bind = tk.StringVar()
-            self.entry_img_import = tk.Entry(
-                self.img_import_top_window,
-                textvariable=self.entry_img_import_top_bind,
-                width=60)
-            self.entry_img_import.grid(row=0, column=1, columnspan=3, sticky=E)
-
-            def open_file_dialog():
-                file_path_select = filedialog.askopenfilename(
-                    parent=self.img_import_top_window)
-                self.entry_img_import_top_bind.set(file_path_select)
-
-            self.entry_dialog = tk.Button(self.img_import_top_window,
-                                          text='...',
-                                          command=open_file_dialog)
-            self.entry_dialog.grid(row=0, column=4, sticky=W)
-
-            self.button_img_import_submit = tk.Button(
-                self.img_import_top_window,
-                text='确定',
-                command=lambda: submit_img(target))
-            self.button_img_import_submit.grid(row=1, column=4, sticky=W)
-
-        def init_file_base(master):
-            '''显示图片文件信息'''
-            self.Label_img_name = tk.Label(master, text='图片名称')
-            self.Label_img_name.grid(row=0, column=0, padx=10, sticky=E)
-
-            self.entry_img_name_bind = tk.StringVar()
-            self.entry_img_name = tk.Entry(
-                master, textvariable=self.entry_img_name_bind)
-            self.entry_img_name.grid(row=0, column=1, padx=10, sticky=W)
-
-            self.Label_file_name = tk.Label(master, text='目标文件名')
-            self.Label_file_name.grid(row=0, column=2, padx=10, sticky=E)
-
-            self.entry_file_name_bind = tk.StringVar()
-            self.entry_file_name = tk.Entry(
-                master, textvariable=self.entry_file_name_bind)
-            self.entry_file_name.grid(row=0, column=3, padx=10, sticky=W)
-
-            self.entry_file_name.bind('<KeyRelease>',
-                                      self.update_file_name_to_path_callback)
-
-            self.Label_file_path = tk.Label(master, text='图片路径')
-            self.Label_file_path.grid(row=1, column=0, padx=10)
-
-            self.entry_file_path_bind = tk.StringVar()
-            self.entry_file_path = tk.Label(
-                master,
-                textvariable=self.entry_file_path_bind,
-                width=60,
-                bd=2,
-                relief='groove',
-                anchor=W)
-            self.entry_file_path.grid(row=1, column=1, columnspan=3, sticky=E)
-
-            self.button_img_import = tk.Button(
-                master, text='导入图片', command=lambda: import_img_file('full'))
-            self.button_img_import.grid(row=1, column=4, sticky=W)
-
-            self.Label_skyplot_path = tk.Label(master, text='天区图路径')
-            self.Label_skyplot_path.grid(row=2, column=0, padx=10)
-
-            self.entry_skyplot_path_bind = tk.StringVar()
-            self.entry_skyplot_path = tk.Label(
-                master,
-                textvariable=self.entry_skyplot_path_bind,
-                width=60,
-                bd=2,
-                relief='groove',
-                anchor=W)
-            self.entry_skyplot_path.grid(row=2,
-                                         column=1,
-                                         columnspan=3,
-                                         sticky=E)
-
-            self.button_skyplot_path = tk.Button(
-                master,
-                text='导入天区图',
-                command=lambda: import_img_file('skyplot'))
-            self.button_skyplot_path.grid(row=2, column=4, sticky=W)
-
-        def init_base_info(master):
-            '''显示基本信息'''
-
-            def init_update_date(master, prefix):
-                '''添加日期'''
-
-                def update_date_popup():
-                    '''日期弹出窗口'''
-
-                    def update_date():
-                        self.entry_upload_date_bind.set(
-                            self.cal_update.get_date())
-                        self.cal_update_top.destroy()
-
-                    self.cal_update_top = tk.Toplevel(self.master)
-                    self.cal_update_top.title('选择日期')
-                    x, y = self.calendar_upload_date.winfo_rootx(
-                    ), self.calendar_upload_date.winfo_rooty()
-                    self.cal_update_top.geometry('+%d+%d' % (x, y + 30))
-                    self.cal_update_top.grab_set()
-                    self.cal_update = Calendar(self.cal_update_top,
-                                               selectmode='day',
-                                               date_pattern='y年m月d日')
-                    self.cal_update.grid()
-                    self.cal_update_submit_button = tk.Button(
-                        self.cal_update_top, text='确定', command=update_date)
-                    self.cal_update_submit_button.grid()
-
-                self.entry_upload_date_bind = tk.StringVar()
-                if prefix:
-                    self.entry_upload_date_bind.set(
-                        Calendar(master, date_pattern='y年m月d日').get_date())
-                self.entry_upload_date = tk.Entry(
-                    master, textvariable=self.entry_upload_date_bind)
-                self.entry_upload_date.grid(row=0, column=0, padx=0)
-
-                self.calendar_upload_date = tk.Button(
-                    master, text='...', command=update_date_popup)
-                self.calendar_upload_date.grid(row=0, column=1, padx=0)
-
-            self.Label_photographer = tk.Label(master, text='作者（们）')
-            self.Label_photographer.grid(row=0, column=0, padx=10, sticky=W)
-
-            self.entry_photographer_bind = tk.StringVar()
-            self.entry_photographer = tk.Entry(
-                master, textvariable=self.entry_photographer_bind)
-            self.entry_photographer.grid(row=0, column=1, padx=10, sticky=W)
-
-            self.Label_target_name = tk.Label(master, text='目标名称')
-            self.Label_target_name.grid(row=1, column=0, padx=10, sticky=W)
-
-            self.entry_target_name_bind = tk.StringVar()
-            self.entry_target_name = tk.Entry(
-                master, textvariable=self.entry_target_name_bind)
-            self.entry_target_name.grid(row=2, column=1, padx=10, sticky=W)
-
-            self.Label_skyplot = tk.Label(master, text='天区位置')
-            self.Label_skyplot.grid(row=2, column=0, padx=10, sticky=W)
-
-            self.entry_skyplot_bind = tk.StringVar()
-            self.entry_skyplot = tk.Entry(master,
-                                          textvariable=self.entry_skyplot_bind)
-            self.entry_skyplot.grid(row=1, column=1, padx=10, sticky=W)
-
-            self.Label_upload_date = tk.Label(master, text='添加日期')
-            self.Label_upload_date.grid(row=3, column=0, padx=10, sticky=W)
-
-            self.Frame_upload_date = tk.Frame(master)
-            self.Frame_upload_date.grid(row=3, column=1, padx=10, sticky=W)
-            init_update_date(self.Frame_upload_date, prefix=prefix)
-
-            self.Label_image_description = tk.Label(master, text='图片描述')
-            self.Label_image_description.grid(row=4,
-                                              column=0,
-                                              padx=10,
-                                              sticky=W)
-
-            self.entry_image_description = tk.Text(master, width=25, height=5)
-            self.entry_image_description.grid(row=4,
-                                              column=1,
-                                              padx=10,
-                                              sticky=W)
-
-        def init_shoot_info(master):
-            '''显示拍摄信息'''
-            self.Label_shoot_date = tk.Label(master, text='拍摄日期')
-            self.Label_shoot_date.grid(row=0, column=0, padx=10, sticky=W)
-
-            self.entry_shoot_date = tk.Text(master, width=25, height=3)
-            self.entry_shoot_date.grid(row=0, column=1, padx=10, sticky=W)
-
-            self.Label_location = tk.Label(master, text='拍摄地点')
-            self.Label_location.grid(row=1, column=0, padx=10, sticky=W)
-
-            self.entry_location_bind = tk.StringVar()
-            self.entry_location = tk.Entry(
-                master, textvariable=self.entry_location_bind, width=25)
-            self.entry_location.grid(row=1, column=1, padx=10, sticky=W)
-
-            self.Label_exposure = tk.Label(master, text='曝光时间')
-            self.Label_exposure.grid(row=2, column=0, padx=10, sticky=W)
-
-            self.entry_exposure = tk.Text(master, width=25, height=5)
-            self.entry_exposure.grid(row=2, column=1, padx=10, sticky=W)
-
-        def init_equipment_info(master):
-            '''显示设备信息'''
-            self.Label_telescope = tk.Label(master, text='望远镜')
-            self.Label_telescope.grid(row=0, column=0, padx=10, sticky=W)
-
-            self.entry_telescope_bind = tk.StringVar()
-            self.entry_telescope = tk.Entry(
-                master, textvariable=self.entry_telescope_bind, width=26)
-            self.entry_telescope.grid(row=0, column=1, padx=10, sticky=W)
-
-            self.Label_camera = tk.Label(master, text='相机')
-            self.Label_camera.grid(row=1, column=0, padx=10, sticky=W)
-
-            self.entry_camera_bind = tk.StringVar()
-            self.entry_camera = tk.Entry(master,
-                                         textvariable=self.entry_camera_bind,
-                                         width=26)
-            self.entry_camera.grid(row=1, column=1, padx=10, sticky=W)
-
-            self.Label_mount = tk.Label(master, text='底座')
-            self.Label_mount.grid(row=2, column=0, padx=10, sticky=W)
-
-            self.entry_mount_bind = tk.StringVar()
-            self.entry_mount = tk.Entry(master,
-                                        textvariable=self.entry_mount_bind,
-                                        width=26)
-            self.entry_mount.grid(row=2, column=1, padx=10, sticky=W)
-
-            self.Label_filter = tk.Label(master, text='滤镜')
-            self.Label_filter.grid(row=3, column=0, padx=10, sticky=W)
-
-            self.entry_filter_bind = tk.StringVar()
-            self.entry_filter = tk.Entry(master,
-                                         textvariable=self.entry_filter_bind,
-                                         width=26)
-            self.entry_filter.grid(row=3, column=1, padx=10, sticky=W)
-
-            self.Label_guide_camera = tk.Label(master, text='导星相机')
-            self.Label_guide_camera.grid(row=4, column=0, padx=10, sticky=W)
-
-            self.entry_guide_camera_bind = tk.StringVar()
-            self.entry_guide_camera = tk.Entry(
-                master, textvariable=self.entry_guide_camera_bind, width=26)
-            self.entry_guide_camera.grid(row=4, column=1, padx=10, sticky=W)
-
-            self.Label_focuser = tk.Label(master, text='调焦')
-            self.Label_focuser.grid(row=5, column=0, padx=10, sticky=W)
-
-            self.entry_focuser_bind = tk.StringVar()
-            self.entry_focuser = tk.Entry(master,
-                                          textvariable=self.entry_focuser_bind,
-                                          width=26)
-            self.entry_focuser.grid(row=5, column=1, padx=10, sticky=W)
-
-            self.Label_accessory = tk.Label(master, text='附件')
-            self.Label_accessory.grid(row=6, column=0, padx=10, sticky=W)
-
-            self.entry_accessory = tk.Text(master, width=25, height=2)
-            self.entry_accessory.grid(row=6, column=1, padx=10, sticky=W)
-
-            self.Label_software = tk.Label(master, text='软件')
-            self.Label_software.grid(row=7, column=0, padx=10, sticky=W)
-
-            self.entry_software_bind = tk.StringVar()
-            self.entry_software = tk.Entry(
-                master, textvariable=self.entry_software_bind, width=26)
-            self.entry_software.grid(row=7, column=1, padx=10, sticky=W)
-
-        def init_advanced_info(master):
-            '''显示高级信息'''
-
-            def init_RA(master):
-                '''赤经'''
-                self.entry_RA_h_bind = tk.StringVar()
-                self.entry_RA_h = tk.Entry(master,
-                                           textvariable=self.entry_RA_h_bind,
-                                           width=4)
-                self.entry_RA_h.grid(row=0, column=0, padx=0)
-
-                self.Label_RA_h = tk.Label(master, text='h', width=2)
-                self.Label_RA_h.grid(row=0, column=1, padx=0)
-
-                self.entry_RA_m_bind = tk.StringVar()
-                self.entry_RA_m = tk.Entry(master,
-                                           textvariable=self.entry_RA_m_bind,
-                                           width=4)
-                self.entry_RA_m.grid(row=0, column=2, padx=0)
-
-                self.Label_RA_m = tk.Label(master, text='m', width=2)
-                self.Label_RA_m.grid(row=0, column=3, padx=0)
-
-                self.entry_RA_s_bind = tk.StringVar()
-                self.entry_RA_s = tk.Entry(master,
-                                           textvariable=self.entry_RA_s_bind,
-                                           width=6)
-                self.entry_RA_s.grid(row=0, column=4, padx=0)
-
-                self.Label_RA_s = tk.Label(master, text='s', width=2)
-                self.Label_RA_s.grid(row=0, column=5, padx=0)
-
-            def init_DEC(master):
-                '''赤纬'''
-                self.entry_DEC_h_bind = tk.StringVar()
-                self.entry_DEC_h = tk.Entry(master,
-                                            textvariable=self.entry_DEC_h_bind,
-                                            width=4)
-                self.entry_DEC_h.grid(row=0, column=0, padx=0)
-
-                self.Label_DEC_h = tk.Label(master, text='°', width=2)
-                self.Label_DEC_h.grid(row=0, column=1, padx=0)
-
-                self.entry_DEC_m_bind = tk.StringVar()
-                self.entry_DEC_m = tk.Entry(master,
-                                            textvariable=self.entry_DEC_m_bind,
-                                            width=4)
-                self.entry_DEC_m.grid(row=0, column=2, padx=0)
-
-                self.Label_DEC_m = tk.Label(master, text='\'', width=2)
-                self.Label_DEC_m.grid(row=0, column=3, padx=0)
-
-                self.entry_DEC_s_bind = tk.StringVar()
-                self.entry_DEC_s = tk.Entry(master,
-                                            textvariable=self.entry_DEC_s_bind,
-                                            width=6)
-                self.entry_DEC_s.grid(row=0, column=4, padx=0)
-
-                self.Label_DEC_s = tk.Label(master, text='"', width=2)
-                self.Label_DEC_s.grid(row=0, column=5, padx=0)
-
-            def init_pixel_scale(master):
-                '''像素分辨率'''
-                self.entry_pixel_scale_bind = tk.StringVar()
-                self.entry_pixel_scale = tk.Entry(
-                    master, textvariable=self.entry_pixel_scale_bind, width=6)
-                self.entry_pixel_scale.grid(row=0, column=0, padx=0)
-
-                self.combo_pixel_scale = ttk.Combobox(master,
-                                                      state='readonly',
-                                                      width=4)
-                self.combo_pixel_scale['values'] = ('"/px', '\'/px', '°/px')
-                self.combo_pixel_scale.current(0)
-                self.combo_pixel_scale.grid(row=0, column=1, padx=0)
-
-            def init_FOV(master):
-                '''视场大小'''
-                self.entry_FOV_width_bind = tk.StringVar()
-                self.entry_FOV_width = tk.Entry(
-                    master, textvariable=self.entry_FOV_width_bind, width=6)
-                self.entry_FOV_width.grid(row=0, column=0, padx=0)
-
-                self.Label_FOV_plus = tk.Label(master, text='x')
-                self.Label_FOV_plus.grid(row=0, column=1, padx=0)
-
-                self.entry_FOV_height_bind = tk.StringVar()
-                self.entry_FOV_height = tk.Entry(
-                    master, textvariable=self.entry_FOV_height_bind, width=6)
-                self.entry_FOV_height.grid(row=0, column=2, padx=0)
-
-                self.combo_FOV = ttk.Combobox(master,
-                                              state='readonly',
-                                              width=1)
-                self.combo_FOV['values'] = ('"', '\'', '°')
-                self.combo_FOV.current(2)
-                self.combo_FOV.grid(row=0, column=3, padx=0)
-
-            self.Label_file_size = tk.Label(master, text='文件大小')
-            self.Label_file_size.grid(row=0, column=0, padx=10, sticky=W)
-
-            self.entry_file_size_bind = tk.StringVar()
-            self.entry_file_size = tk.Label(
-                master,
-                textvariable=self.entry_file_size_bind,
-                bd=2,
-                relief='groove',
-                width=15)
-            self.entry_file_size.grid(row=0, column=1, padx=10, sticky=W)
-
-            self.Label_resolution = tk.Label(master, text='分辨率')
-            self.Label_resolution.grid(row=1, column=0, padx=10, sticky=W)
-
-            self.entry_resolution_bind = tk.StringVar()
-            self.entry_resolution = tk.Label(
-                master,
-                textvariable=self.entry_resolution_bind,
-                bd=2,
-                relief='groove',
-                width=15)
-            self.entry_resolution.grid(row=1, column=1, padx=10, sticky=W)
-
-            self.Label_RA = tk.Label(master, text='赤经')
-            self.Label_RA.grid(row=2, column=0, padx=10, sticky=W)
-
-            self.entry_RA = tk.Frame(master)
-            self.entry_RA.grid(row=2, column=1, padx=10, sticky=W)
-
-            init_RA(self.entry_RA)
-
-            self.Label_DEC = tk.Label(master, text='赤纬')
-            self.Label_DEC.grid(row=3, column=0, padx=10, sticky=W)
-
-            self.entry_DEC = tk.Frame(master)
-            self.entry_DEC.grid(row=3, column=1, padx=10, sticky=W)
-
-            init_DEC(self.entry_DEC)
-
-            self.Label_pixel_scale = tk.Label(master, text='像素分辨率')
-            self.Label_pixel_scale.grid(row=4, column=0, padx=10, sticky=W)
-
-            self.Frame_pixel_scale = tk.Frame(master)
-            self.Frame_pixel_scale.grid(row=4, column=1, padx=10, sticky=W)
-
-            init_pixel_scale(self.Frame_pixel_scale)
-
-            self.Label_FOV = tk.Label(master, text='视场大小')
-            self.Label_FOV.grid(row=5, column=0, padx=10, sticky=W)
-
-            self.Frame_FOV = tk.Frame(master)
-            self.Frame_FOV.grid(row=5, column=1, padx=10, sticky=W)
-
-            init_FOV(self.Frame_FOV)
-
-        def init_buton(master):
-            '''保存、重置、取消按钮''' ''
-            self.Button_submit = tk.Button(master,
-                                           text='保存',
-                                           command=self.save_data)
-            self.Button_submit.grid(row=0, column=0, padx=10, pady=10)
-
-            self.Button_reset = tk.Button(
-                master,
-                text='重置',
-                command=lambda: self.reset_info(mode='reset'))
-            self.Button_reset.grid(row=0, column=1, padx=10, pady=10)
-
-            self.Button_cancel = tk.Button(
-                master,
-                text='取消',
-                command=lambda: self.reset_info(mode='cancel'))
-            self.Button_cancel.grid(row=0, column=2, padx=10, pady=10)
 
         self.Frame_file_base = tk.Frame(master)
         self.Frame_file_base.grid(row=0,
@@ -1186,15 +1173,15 @@ class Application(tk.Frame):
                                   columnspan=2,
                                   padx=10,
                                   pady=10)
-        init_file_base(self.Frame_file_base)
+        self.init_file_base(self.Frame_file_base)
 
         self.Frame_base_info = tk.Frame(master)
         self.Frame_base_info.grid(row=1, column=1, padx=10, pady=10)
-        init_base_info(self.Frame_base_info)
+        self.init_base_info(self.Frame_base_info, prefix=prefix)
 
         self.Frame_shoot_info = tk.Frame(master)
         self.Frame_shoot_info.grid(row=1, column=0, padx=10, pady=10)
-        init_shoot_info(self.Frame_shoot_info)
+        self.init_shoot_info(self.Frame_shoot_info)
 
         self.Frame_equipment_info = tk.Frame(master)
         self.Frame_equipment_info.grid(row=2,
@@ -1202,16 +1189,16 @@ class Application(tk.Frame):
                                        rowspan=2,
                                        padx=10,
                                        pady=10)
-        init_equipment_info(self.Frame_equipment_info)
+        self.init_equipment_info(self.Frame_equipment_info)
 
         self.Frame_advanced_info = tk.Frame(master)
         self.Frame_advanced_info.grid(row=2, column=0, padx=10, pady=10)
-        init_advanced_info(self.Frame_advanced_info)
+        self.init_advanced_info(self.Frame_advanced_info)
 
         if prefix:
             self.Frame_button = tk.Frame(master)
             self.Frame_button.grid(row=3, column=0, padx=10, pady=10)
-            init_buton(self.Frame_button)
+            self.init_buton(self.Frame_button)
 
     def init_image_preview(self,
                            master,
