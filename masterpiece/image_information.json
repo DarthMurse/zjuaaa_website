@@ -1,16 +1,18 @@
 {
     "1": {
-        "file-name": "M42_SHO2.png",
-        "image-name": "M42 test1",
-        "full-image": "/masterpiece/full/full_M42_SHO2.png",
+        "file-name": "M42_SHO2",
+        "file-extension": ".jpg",
+        "image-name": "M42",
+        "full-image": "/masterpiece/full/full_M42_SHO2.jpg",
         "thumbnail-image": "/masterpiece/thumbnail/thumbnail_M42_SHO2.png",
+        "middle-image": "/masterpiece/middle/middle_M42_SHO2.png",
         "histogram-image": "/masterpiece/histogram/histogram_M42_SHO2.png",
         "skyplot-image": "/masterpiece/skyplot/skyplot_M42_SHO2.png",
         "base-information": {
             "photographer": "lxy/pb",
             "target-name": "M42",
-            "sky-plot": "猎户座",
-            "upload-date": "未知",
+            "sky-plot": "猎户座 Ori",
+            "upload-date": "2023年9月30日",
             "image-description": "xyjj的大作之1"
         },
         "shoot-information": {
@@ -29,27 +31,28 @@
             "software": "Pixinsight"
         },
         "advanced": {
-            "file-size": "13.5M",
+            "file-size": "13.5MB",
             "resolution": "4125x2915",
-            "RA": "05h 35m 11.755s",
-            "DEC": "-05° 24' 08.333\"",
+            "RA": "05 h 35 m 11.755 s",
+            "DEC": "-05 ° 24 ' 08.333 \"",
             "pixel-scale": "1.94 \"/px",
             "FOV": "2.22 x 1.57 °"
         }
     },
     "2": {
-        "file-name": "xyjj1.png",
+        "file-name": "xyjj1",
+        "file-extension": ".jpg",
         "image-name": "xyjj and loki 1（好甜）",
-        "full-image": "/masterpiece/full/full_xyjj1.png",
+        "full-image": "/masterpiece/full/full_xyjj1.jpg",
         "thumbnail-image": "/masterpiece/thumbnail/thumbnail_xyjj1.png",
         "middle-image": "/masterpiece/middle/middle_xyjj1.png",
         "histogram-image": "/masterpiece/histogram/histogram_xyjj1.png",
         "skyplot-image": "",
         "base-information": {
-            "photographer": "",
+            "photographer": "未知",
             "target-name": "",
             "sky-plot": "",
-            "upload-date": "",
+            "upload-date": "2023年9月30日",
             "image-description": "爱情的萌芽（大笑）"
         },
         "shoot-information": {
@@ -68,8 +71,8 @@
             "software": ""
         },
         "advanced": {
-            "file-size": "",
-            "resolution": "",
+            "file-size": "3.73MB",
+            "resolution": "3456x4608",
             "RA": "",
             "DEC": "",
             "pixel-scale": "",
@@ -77,16 +80,19 @@
         }
     },
     "3": {
+        "file-name": "zjuaaa all 1",
+        "file-extension": ".jpg",
         "image-name": "冷湖合影",
-        "full-image": "/masterpiece/full/zjuaaa all 1.jpg",
+        "full-image": "/masterpiece/full/full_zjuaaa all 1.jpg",
         "thumbnail-image": "/masterpiece/thumbnail/thumbnail_zjuaaa all 1.png",
+        "middle-image": "/masterpiece/middle/middle_zjuaaa all 1.png",
         "histogram-image": "/masterpiece/histogram/histogram_zjuaaa all 1.png",
         "skyplot-image": "",
         "base-information": {
-            "photographer": "",
+            "photographer": "loki",
             "target-name": "",
             "sky-plot": "",
-            "upload-date": "",
+            "upload-date": "2023年9月30日",
             "image-description": "合照之1"
         },
         "shoot-information": {
@@ -105,8 +111,8 @@
             "software": ""
         },
         "advanced": {
-            "file-size": "",
-            "resolution": "",
+            "file-size": "1.33MB",
+            "resolution": "5472x3648",
             "RA": "",
             "DEC": "",
             "pixel-scale": "",
@@ -114,8 +120,10 @@
         }
     },
     "4": {
+        "file-name": "M27",
+        "file-extension": ".jpg",
         "image-name": "M27",
-        "full-image": "/masterpiece/full/full_M27.png",
+        "full-image": "/masterpiece/full/full_M27.jpg",
         "thumbnail-image": "/masterpiece/thumbnail/thumbnail_M27.png",
         "middle-image": "/masterpiece/middle/middle_M27.png",
         "histogram-image": "/masterpiece/histogram/histogram_M27.png",
@@ -123,8 +131,8 @@
         "base-information": {
             "photographer": "pb",
             "target-name": "M27",
-            "sky-plot": "狐狸座",
-            "upload-date": "未知",
+            "sky-plot": "狐狸座 Vul",
+            "upload-date": "2023年9月30日",
             "image-description": "天文台的处女作"
         },
         "shoot-information": {
@@ -143,26 +151,28 @@
             "software": "Pixinsight"
         },
         "advanced": {
-            "file-size": "1.44M",
+            "file-size": "1.24MB",
             "resolution": "1000x1000",
-            "RA": "19h 59m 36.510s",
-            "DEC": "+22° 43' 17.626\"",
+            "RA": "19 h 59 m 36.510 s",
+            "DEC": "+22 ° 43 ' 17.626 \"",
             "pixel-scale": "1.17 \"/px",
             "FOV": "19.5 x 19.5 '"
         }
     },
     "5": {
+        "file-name": "cby1",
+        "file-extension": ".jpg",
         "image-name": "月食 cby",
-        "full-image": "/masterpiece/full/full_DSC01823.png",
-        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_DSC01823.png",
-        "middle-image": "/masterpiece/middle/middle_DSC01823.png",
-        "histogram-image": "/masterpiece/histogram/histogram_DSC01823.png",
+        "full-image": "/masterpiece/full/full_cby1.jpg",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_cby1.png",
+        "middle-image": "/masterpiece/middle/middle_cby1.png",
+        "histogram-image": "/masterpiece/histogram/histogram_cby1.png",
         "skyplot-image": "",
         "base-information": {
             "photographer": "cby",
             "target-name": "Moon",
             "sky-plot": "",
-            "upload-date": "",
+            "upload-date": "2023年9月30日",
             "image-description": ""
         },
         "shoot-information": {
@@ -181,12 +191,292 @@
             "software": ""
         },
         "advanced": {
-            "file-size": "",
-            "resolution": "",
+            "file-size": "4.03MB",
+            "resolution": "2817x2808",
             "RA": "",
             "DEC": "",
             "pixel-scale": "",
             "FOV": ""
+        }
+    },
+    "6": {
+        "file-name": "jupiter1",
+        "file-extension": ".png",
+        "image-name": "jupiter1",
+        "full-image": "/masterpiece/full/full_jupiter1.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_jupiter1.png",
+        "middle-image": "/masterpiece/middle/middle_jupiter1.png",
+        "histogram-image": "/masterpiece/histogram/histogram_jupiter1.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "pb",
+            "target-name": "",
+            "sky-plot": "",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "2022年11月6日",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "260KB",
+            "resolution": "1000x680",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    },
+    "7": {
+        "file-name": "saturn1",
+        "file-extension": ".png",
+        "image-name": "saturn1",
+        "full-image": "/masterpiece/full/full_saturn1.png",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_saturn1.png",
+        "middle-image": "/masterpiece/middle/middle_saturn1.png",
+        "histogram-image": "/masterpiece/histogram/histogram_saturn1.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "pb",
+            "target-name": "",
+            "sky-plot": "",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "2022年11月6日",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "90.4KB",
+            "resolution": "680x440",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    },
+    "8": {
+        "file-name": "银河lyx1",
+        "file-extension": ".jpg",
+        "image-name": "银河 1",
+        "full-image": "/masterpiece/full/full_银河lyx1.jpg",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_银河lyx1.png",
+        "middle-image": "/masterpiece/middle/middle_银河lyx1.png",
+        "histogram-image": "/masterpiece/histogram/histogram_银河lyx1.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "lyx",
+            "target-name": "",
+            "sky-plot": "",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "61.9KB",
+            "resolution": "856x490",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    },
+    "9": {
+        "file-name": "银河lyx2",
+        "file-extension": ".jpg",
+        "image-name": "银河2",
+        "full-image": "/masterpiece/full/full_银河lyx2.jpg",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_银河lyx2.png",
+        "middle-image": "/masterpiece/middle/middle_银河lyx2.png",
+        "histogram-image": "/masterpiece/histogram/histogram_银河lyx2.png",
+        "skyplot-image": "",
+        "base-information": {
+            "photographer": "lyx",
+            "target-name": "",
+            "sky-plot": "",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "516KB",
+            "resolution": "1264x2778",
+            "RA": "",
+            "DEC": "",
+            "pixel-scale": "",
+            "FOV": ""
+        }
+    },
+    "10": {
+        "file-name": "m42 lyx",
+        "file-extension": ".jpg",
+        "image-name": "M42 广域",
+        "full-image": "/masterpiece/full/full_m42 lyx.jpg",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_m42 lyx.png",
+        "middle-image": "/masterpiece/middle/middle_m42 lyx.png",
+        "histogram-image": "/masterpiece/histogram/histogram_m42 lyx.png",
+        "skyplot-image": "/masterpiece/skyplot/skyplot_m42 lyx.png",
+        "base-information": {
+            "photographer": "lyx",
+            "target-name": "",
+            "sky-plot": "",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "1.1MB",
+            "resolution": "2778x1797",
+            "RA": "05 h 24 m 24.026 s",
+            "DEC": "-05 ° 03 ' 20.599 \"",
+            "pixel-scale": "16.1 \"/px",
+            "FOV": "12.4 x 8.04 °"
+        }
+    },
+    "11": {
+        "file-name": "M31",
+        "file-extension": ".jpg",
+        "image-name": "M31",
+        "full-image": "/masterpiece/full/full_M31.jpg",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_M31.png",
+        "middle-image": "/masterpiece/middle/middle_M31.png",
+        "histogram-image": "/masterpiece/histogram/histogram_M31.png",
+        "skyplot-image": "/masterpiece/skyplot/skyplot_M31.png",
+        "base-information": {
+            "photographer": "lxy",
+            "target-name": "仙女座 And",
+            "sky-plot": "M31",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "9.34MB",
+            "resolution": "6921x4975",
+            "RA": "00 h 42 m 37.751 s",
+            "DEC": "+41 ° 15 ' 59.779 \"",
+            "pixel-scale": "1.08 \"/px",
+            "FOV": "2.08 x 1.5 °"
+        }
+    },
+    "12": {
+        "file-name": "IC1590",
+        "file-extension": ".jpg",
+        "image-name": "吃豆人",
+        "full-image": "/masterpiece/full/full_IC1590.jpg",
+        "thumbnail-image": "/masterpiece/thumbnail/thumbnail_IC1590.png",
+        "middle-image": "/masterpiece/middle/middle_IC1590.png",
+        "histogram-image": "/masterpiece/histogram/histogram_IC1590.png",
+        "skyplot-image": "/masterpiece/skyplot/skyplot_IC1590.png",
+        "base-information": {
+            "photographer": "pb",
+            "target-name": "仙后座 Cas",
+            "sky-plot": "IC1590",
+            "upload-date": "2023年9月30日",
+            "image-description": ""
+        },
+        "shoot-information": {
+            "shoot-date": "",
+            "location": "",
+            "exposure": ""
+        },
+        "equipment": {
+            "telescope": "",
+            "camera": "",
+            "mount": "",
+            "filter": "",
+            "guide-camera": "",
+            "focuser": "",
+            "accessory": "",
+            "software": ""
+        },
+        "advanced": {
+            "file-size": "2.84MB",
+            "resolution": "1824x2448",
+            "RA": "00 h 52 m 49.716 s",
+            "DEC": "+56 ° 38 ' 06.062 \"",
+            "pixel-scale": "1.17 \"/px",
+            "FOV": "35.6 x 47.7 '"
         }
     }
 }

@@ -1,65 +1,41 @@
 <!doctype html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="author 2023/08-" content="雷可，诸致远，洪艺中，庞彬">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author 2023/08-" content="雷可，诸致远，洪艺中，庞彬">
 
-    <meta name="newest-version" content="2023/8/28">
-    <meta name="description" content="浙大天协是浙大一群天文爱好者的聚集地">
-    <meta name="keywords" content="浙江大学,浙大天协,天文爱好者,社团">
-    <title>浙大天协</title>
-    <link rel="shortcut icon" href="/img/logo.png">
-    <link rel="stylesheet" href="/js/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/img/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css">
+        <meta name="newest-version" content="2023/8/28">
+        <meta name="description" content="浙大天协是浙大一群天文爱好者的聚集地">
+        <meta name="keywords" content="浙江大学,浙大天协,天文爱好者,社团">
+        <title>浙大天协</title>
+        <link rel="shortcut icon" href="/img/logo.png">
+        <link rel="stylesheet" href="/js/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="/img/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/masterpiece.css">
-</head>
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/masterpiece.css">
+    </head>
 
-<body>
-    <div class="header">
-        <a href="contact.html" id="button1">联系我们</a><br>
-        <a href="index.html" class="first">主页</a>
-        <a href="tutorial.html">知识科普</a>
-        <a href="tutorial.html">知识科普</a>
-        <a href="activity.html">社团活动</a>
-        <a href="masterpiece.html">天文摄影</a>
-        <a href="about.html">关于我们</a>
-        <a href="https://space.bilibili.com/3493080141400107">哔哩哔哩</a>
-    </div>
-    <nav class="navbar sticky-top z-n1" style="height: 90px;"></nav>
-    <div class="container p-5" id="main-page">
-        <div class="row" data-masonry='{"percentPosition": true}'>
-            <div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
-                <div class="waterflow-images">
-                    <img src="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
-                <div class="waterflow-images">
-                    <img src="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
-                <div class="waterflow-images">
-                    <img src="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
-                <div class="waterflow-images">
-                    <img src="" class="img-fluid">
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 mb-4">
-                <div class="waterflow-images">
-                    <img src="" class="img-fluid">
-                </div>
+    <body>
+        <div class="header">
+            <a href="contact.html" id="button1">联系我们</a><br>
+            <a href="index.html" class="first">主页</a>
+            <a href="tutorial.html">知识科普</a>
+            <a href="tutorial.html">知识科普</a>
+            <a href="activity.html">社团活动</a>
+            <a href="masterpiece.html">天文摄影</a>
+            <a href="about.html">关于我们</a>
+            <a href="https://space.bilibili.com/3493080141400107">哔哩哔哩</a>
+        </div>
+        <nav class="navbar sticky-top z-n1" style="height: 90px;"></nav>
+        <div class="container p-5" id="main-page">
+            <div class="row" data-masonry='{"percentPosition": true}'>
             </div>
         </div>
-    </div>
 
-</body>
+    </body>
 
 </html>
 <script src="/js/jquery-3.7.1.min.js"></script>
@@ -67,36 +43,4 @@
 <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="/js/masonry.pkgd.min.js"></script>
 
-<script>
-    var image_list = [];
-    var image_information_path = "/masterpiece/image_information.json";
-    var msnry = new Masonry("#main-page .row", {});
-    async function start_function() {
-
-        await $.getJSON(image_information_path, function (data) {
-            $.each(data, function (image_index, image_information) {
-                image_list.push(image_index);
-            });
-        });
-        await get_waterflow_image(image_list);
-    }
-
-    async function get_waterflow_image(image_list) {
-        await $.getJSON(image_information_path, function (result) {
-            for (var i = 0; i < image_list.length; i++) {
-                $(".waterflow-images").eq(i).children("img").attr("src", result[image_list[i]]["thumbnail-image"]);
-                $(".waterflow-images").eq(i).children("img").attr("img-index", image_list[i]);
-            }
-        });
-        await $(".waterflow-images img").imagesLoaded(async function (images) {
-            await msnry.layout();
-        });
-    }
-
-    start_function();
-
-    $(".waterflow-images").on("click", function () {
-        var img_index = $(this).children("img").attr("img-index");
-        window.location.href = "/masterpiece/detail.html"+"?img"+img_index;
-    });
-</script>
+<script src="/js/masterpiece.js"></script>
