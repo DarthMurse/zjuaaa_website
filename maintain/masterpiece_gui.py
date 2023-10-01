@@ -5,7 +5,7 @@
 图片名称、文件名、图片路径、作者、添加日期 为必需项，图片名称和文件名不可重复
 信息可留空，留空的条目将不会出现在网页上
 图片大小应小于20MB
-建议从 https://nova.astrometry.net/ 解析获得左下角的高级信息
+建议从 https://nova.astrometry.net/ 解析获得左下角的高级信息，天区图用第二张
 '''
 
 import tkinter as tk
@@ -382,11 +382,25 @@ class img_list_json_class:
         return self.img_info_list[int(index) - 1]
 
     def swap_img(self, index1, index2):
+        index1 = int(index1)
+        index2 = int(index2)
         self.img_info_list[index1 - 1], self.img_info_list[
             index2 - 1] = self.img_info_list[index2 -
                                              1], self.img_info_list[index1 - 1]
-        self.img_info_list[index1 - 1].set_img_index(index1 - 1)
-        self.img_info_list[index2 - 1].set_img_index(index2 - 1)
+        self.img_info_list[index1 - 1].index = index1
+        self.img_info_list[index2 - 1].index = index2
+
+    def move_up(self, index):
+        index = int(index)
+        if index == 1:
+            return
+        self.swap_img(index, index - 1)
+
+    def move_down(self, index):
+        index = int(index)
+        if index == len(self.img_info_list):
+            return
+        self.swap_img(index, index + 1)
 
     def get_show_base(self, img_info: img_info_class):
         return [
@@ -623,14 +637,20 @@ class Application(tk.Frame):
         self.init_image_preview(self.Frame_image_preview)
 
     def init_button(self, master):
-        '''添加、删除按钮'''
-        self.Button0 = tk.Button(master,
-                                 text='添加',
-                                 command=lambda: self.reset_info(mode='add'))
-        self.Button0.grid(row=0, column=0, padx=10)
+        '''添加、删除、上移、下移按钮'''
+        self.Button_0 = tk.Button(master,
+                                  text='添加',
+                                  command=lambda: self.reset_info(mode='add'))
+        self.Button_0.grid(row=0, column=0, padx=10)
 
-        self.Button2 = tk.Button(master, text='删除', command=self.delete_item)
-        self.Button2.grid(row=0, column=1, padx=10)
+        self.Button_1 = tk.Button(master, text='删除', command=self.delete_item)
+        self.Button_1.grid(row=0, column=1, padx=10)
+
+        self.Button_2 = tk.Button(master, text='上移', command=self.move_up)
+        self.Button_2.grid(row=0, column=2, padx=10)
+
+        self.Button_3 = tk.Button(master, text='下移', command=self.move_down)
+        self.Button_3.grid(row=0, column=3, padx=10)
 
     def init_image_list(self, master):
         '''表格初始化'''
@@ -1434,6 +1454,36 @@ class Application(tk.Frame):
         self.temp_info_class.set_FOV(self.entry_FOV_width_bind.get(),
                                      self.entry_FOV_height_bind.get(),
                                      self.combo_FOV.get())
+
+    def move_up(self):
+        '''上移图片'''
+        if len(self.table.selection()) == 0:
+            messagebox.showerror('错误', '请选择要移动的图片')
+            return
+        if self.table.selection()[0] == self.table.get_children()[0]:
+            messagebox.showerror('错误', '已经是第一张图片了')
+            return
+
+        index = self.table.item(self.table.selection(), 'text')
+        self.info_list_class.move_up(index)
+        self.reset_image_list(self.master, True)
+        self.table.selection_set(self.table.get_children()[int(index) - 2])
+        self.info_list_class.save_json(self.json_path)
+
+    def move_down(self):
+        '''下移图片'''
+        if len(self.table.selection()) == 0:
+            messagebox.showerror('错误', '请选择要移动的图片')
+            return
+        if self.table.selection()[0] == self.table.get_children()[-1]:
+            messagebox.showerror('错误', '已经是最后一张图片了')
+            return
+
+        index = self.table.item(self.table.selection(), 'text')
+        self.info_list_class.move_down(index)
+        self.reset_image_list(self.master, True)
+        self.table.selection_set(self.table.get_children()[int(index)])
+        self.info_list_class.save_json(self.json_path)
 
     def delete_item(self):
         '''删除图片'''
