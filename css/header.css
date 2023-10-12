@@ -1,0 +1,79 @@
+/* 这里是上方导航栏的代码。*/
+div.header {
+    /* margin: 0; */
+    background-color: #1F1F1F;
+    /* position: fixed; */
+    /* padding: 10px 0px 30px 0px; */
+    min-height: 90px;
+    width: 100%;
+    /* z-index: 10; */
+    font-size: 20px;
+}
+
+div.header a {
+    color: white;
+    font-weight: bold;
+    /* text-align: center; */
+    /* margin-top: 10px; */
+    /* text-decoration: none; */
+}
+
+div.header .navbar-toggler-icon {
+    background-color: white;
+}
+
+div.header #navbarNav {
+    padding-left: 10%;
+}
+
+div.header a.first {
+    color: rgb(161, 229, 182);
+}
+
+div.header a.first.active {
+    color: rgb(161, 229, 182);
+}
+
+div.header a.first:hover {
+    color: rgb(161, 229, 182);
+}
+
+div.header a.knowledge:hover {
+    color: rgb(123, 232, 211);
+}
+
+div.header a.activity:hover {
+    color: rgb(80, 183, 224);
+}
+
+div.header a.masterpiece:hover {
+    color: rgb(63, 157, 224);
+}
+
+div.header a.about:hover {
+    color: rgb(38, 131, 227);
+}
+
+div.header a.bilibili:hover {
+    color: rgb(111, 76, 222);
+}
+
+a#button3 {
+    background-color: white;
+    color: black;
+    /* display: inline block; */
+    padding: 10px 20px 10px 20px;
+    /* height: 70px;
+    width: 200px; */
+    margin-right: 10%;
+    border-radius: 30px;
+    /* float: right; */
+    /* margin-right: 10%; */
+}
+
+a#button3:hover {
+    background-color: #4F4F4F;
+    color: white;
+}
+
+/* 上方导航栏的代码到此结束。*/
