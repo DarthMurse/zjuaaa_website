@@ -5,17 +5,39 @@
 body {
     box-sizing: border-box;
     overflow-x: hidden;
+    margin: 0;
+    border: 0;
+    background-color: #2F2F2F;
 }
 
-.header {
-    box-sizing: content-box;
-    padding: inherit;
-}
 
-.waterflow-images{
+.waterflow-images {
     cursor: pointer;
 }
 
 .waterflow-images.hidden {
     display: none;
+}
+
+#breadcrumb-bar {
+    height: 2rem;
+    padding-left: 1rem;
+    margin: 0 0rem;
+    border-radius: 10px;
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.breadcrumb-item {
+    --bs-breadcrumb-divider: '>';
+    --bs-breadcrumb-divider-color: white;
+    --bs-breadcrumb-item-active-color: white;
+    font-size: 1rem;
+}
+
+.breadcrumb a {
+    text-decoration: none;
 }

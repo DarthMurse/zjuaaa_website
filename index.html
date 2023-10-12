@@ -8,13 +8,13 @@
         <meta name="description" content="浙大天协是浙大一群天文爱好者的聚集地">
         <meta name="keywords" content="浙江大学,浙大天协,天文爱好者,社团">
         <title>浙大天协</title>
-        <link rel="stylesheet" href="js/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="js/bootstrap/bootstrap.min.css"> <!-- 页头用了此库 -->
+        <link rel="stylesheet" href="css/index.css"> 
+        <link rel="stylesheet" href="css/header.css"> <!-- 页头样式 -->
         <link rel="shortcut icon" href="img/logo.png">
     </head>
     <body>
-        <div class="header d-flex align-items-center">
+        <div class="header d-flex align-items-center"> <!-- 页头  -->
         </div>
 
         <div class="slogan">
@@ -86,9 +86,9 @@
     </body>
 </html>
 
-<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script> <!-- 以下3个为页头所需脚本  -->
 <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
-<script>
+<script>  
     $(document).ready(function () {
         $("div.header").load("/header.html");
     } )

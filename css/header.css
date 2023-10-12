@@ -15,7 +15,7 @@ div.header a {
     font-weight: bold;
     /* text-align: center; */
     /* margin-top: 10px; */
-    /* text-decoration: none; */
+    text-decoration: none;
 }
 
 div.header .navbar-toggler-icon {
@@ -23,7 +23,7 @@ div.header .navbar-toggler-icon {
 }
 
 div.header #navbarNav {
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 div.header a.first {
@@ -58,22 +58,37 @@ div.header a.bilibili:hover {
     color: rgb(111, 76, 222);
 }
 
-a#button3 {
-    background-color: white;
-    color: black;
-    /* display: inline block; */
-    padding: 10px 20px 10px 20px;
-    /* height: 70px;
+@media (min-width: 991.98px) {
+    a#button1 {
+        background-color: white;
+        color: black;
+        /* display: inline block; */
+        padding: 10px 20px;
+        /* height: 70px;
     width: 200px; */
-    margin-right: 10%;
-    border-radius: 30px;
-    /* float: right; */
-    /* margin-right: 10%; */
+        margin-right: 5%;
+        border-radius: 30px;
+        /* float: right; */
+        /* margin-right: 10%; */
+    }
+
+
+    a#button1:hover {
+        background-color: #4F4F4F;
+        color: white;
+    }
 }
 
-a#button3:hover {
-    background-color: #4F4F4F;
-    color: white;
+@media (max-width: 991.98px) {
+    a#button1 {
+        margin: 50px 0;
+    }
+
+
+    a#button1:hover {
+        color: #a0a0a0;
+    }
+
 }
 
 /* 上方导航栏的代码到此结束。*/

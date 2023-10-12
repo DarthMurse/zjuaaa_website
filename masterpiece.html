@@ -13,28 +13,30 @@
         <link rel="stylesheet" href="/js/bootstrap/bootstrap.min.css">
         <link rel="stylesheet"
             href="/img/bootstrap-icons-1.10.5/font/bootstrap-icons.min.css">
-
-        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="css/header.css"> <!-- 页头样式 -->
         <link rel="stylesheet" href="/css/masterpiece.css">
     </head>
 
     <body>
-        <div class="header">
-            <a href="contact.html" id="button1">联系我们</a><br>
-            <a href="index.html" class="first">主页</a>
-            <a href="tutorial.html">知识科普</a>
-            <a href="tutorial.html">知识科普</a>
-            <a href="activity.html">社团活动</a>
-            <a href="masterpiece.html">天文摄影</a>
-            <a href="about.html">关于我们</a>
-            <a href="https://space.bilibili.com/3493080141400107">哔哩哔哩</a>
+        <div class="header d-flex align-items-center"> <!-- 页头  -->
         </div>
-        <nav class="navbar sticky-top z-n1" style="height: 90px;"></nav>
-        <div class="container p-5" id="main-page">
+
+        <div class="py-3 px-0 container">
+            <div class="d-flex flex-row align-items-center" id="breadcrumb-bar">
+                <nav class="flex-grow-1" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/index.html">
+                                <i class="bi-house-fill"></i>
+                                主页</a></li>
+                        <li class="breadcrumb-item"><a href="/masterpiece.html">作品</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="container p-2" id="main-page">
             <div class="row" data-masonry='{"percentPosition": true}'>
             </div>
         </div>
-
     </body>
 
 </html>
@@ -44,3 +46,9 @@
 <script src="/js/masonry.pkgd.min.js"></script>
 
 <script src="/js/masterpiece.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("div.header").load("/header.html");
+    } )
+</script>

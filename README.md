@@ -82,3 +82,9 @@ A repository to store all the codes and resources for the Zhejiang University Am
 9.28 17:07 pb
 
 使用git lfs管理图片文件
+
+---
+
+10.12 20:01 pb
+
+添加header.html和header.css以统一页头，用法参考index.html的注释。手机版页面暂定以992px为切换分界点
